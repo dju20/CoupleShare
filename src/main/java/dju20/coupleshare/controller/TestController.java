@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class TestController {
 
+
+	//test  주석
 	@GetMapping("/user")
 	public User getUserData() {
 		System.out.println("come");
