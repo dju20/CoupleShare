@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 
+
 // 마이페이지 컴포넌트
-//test
 const MyPage = () => {
     const [user, setUser] = React.useState(null);
     const [loading, setLoading] = React.useState(true);
