@@ -20,6 +20,8 @@ public class TestController {
 		return new User("수현", "suhyun9764@naver.com");
 	}
 
+	// 수현 노트북 연결 테스트
+
 	// 사용자 정보를 담는 DTO 클래스
 	public static class User {
 		private String name;
