@@ -15,7 +15,7 @@ const MyPage = () => {
                 setUser(response.data);
                 setLoading(false);
             })
-            .catch(error => {
+            .catch(error => { //test
                 setError(error);
                 setLoading(false);
             });
