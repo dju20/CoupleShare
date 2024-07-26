@@ -1,6 +1,10 @@
 package dju20.coupleshare.entity;
 
+import dju20.coupleshare.enums.users.Sex;
+import dju20.coupleshare.enums.users.UserRole;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,16 +23,20 @@ public class User {
 	private Long id;
 
 	private String username;
-	private String sex;
+	@Enumerated(EnumType.STRING)
+	private Sex sex;
+
 	private String password;
 	private String realName;
 	private String profileImg;
 	private String email;
 	private String provider;
-	private String role;
+
+	@Enumerated(EnumType.STRING)
+	private UserRole role;
 
 	@Builder
-	public User(String username, String sex, String password, String realName, String profileImg, String email, String provider, String role) {
+	public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, UserRole role) {
 		this.username = username;
 		this.sex = sex;
 		this.password = password;
