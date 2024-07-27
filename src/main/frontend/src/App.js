@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 
-//test
+
 // 마이페이지 컴포넌트
 const MyPage = () => {
     const [user, setUser] = React.useState(null);
@@ -15,7 +15,7 @@ const MyPage = () => {
                 setUser(response.data);
                 setLoading(false);
             })
-            .catch(error => {
+            .catch(error => { //test
                 setError(error);
                 setLoading(false);
             });
