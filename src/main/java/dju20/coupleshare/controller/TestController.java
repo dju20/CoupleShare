@@ -1,16 +1,15 @@
 package dju20.coupleshare.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import dju20.coupleshare.dto.CustomUserDetails;
 
 @RestController
 @RequestMapping("/api")
 public class TestController {
-
 
 	//test  주석
 	@GetMapping("/user")
@@ -19,7 +18,6 @@ public class TestController {
 		// 예시로 하드코딩된 사용자 정보 반환
 		return new User("수현", "suhyun9764@naver.com");
 	}
-
 
 	// 사용자 정보를 담는 DTO 클래스
 	public static class User {
@@ -48,5 +46,10 @@ public class TestController {
 		}
 	}
 
+	@GetMapping("/app/test")
+	public String testUser(@AuthenticationPrincipal CustomUserDetails userDetails) {
+		String username = userDetails.getUsername();
+		return username;
+	}
 
 }
