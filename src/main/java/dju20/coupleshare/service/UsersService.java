@@ -24,7 +24,7 @@ public class UsersService {
 			.email(registerDto.getEmail())
 			.realName(registerDto.getRealName())
 			.sex(registerDto.getSex())
-			.role(UserRole.USER)
+			.role(UserRole.ROLE_USER)
 			.provider("LOCAL")
 			.build();
 
