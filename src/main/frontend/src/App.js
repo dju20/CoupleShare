@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import RegisterPage from "./registerpage";
+import Login from "./front/Login";
 
 
-//test
 // 마이페이지 컴포넌트
 const MyPage = () => {
     const [user, setUser] = React.useState(null);
@@ -17,7 +17,7 @@ const MyPage = () => {
                 setUser(response.data);
                 setLoading(false);
             })
-            .catch(error => {
+            .catch(error => { //test
                 setError(error);
                 setLoading(false);
             });
@@ -40,11 +40,11 @@ const MyPage = () => {
 const HomePage = () => (
     <div>
         <h1>Home Page</h1>
-        <p>Welcome to the Home Page!</p>
+        <p>Welcome to the Home Page</p>
         <Link to="/mypage">Go to My Page</Link>
-        <Link to="/register">Login</Link>
         <br/>
-
+        <Link to="/login">Login</Link>
+        <br/>
     </div>
 );
 
@@ -60,6 +60,7 @@ const App = () => (
                 <Route path="/" element={<HomePage />} />
                 <Route path="/mypage" element={<MyPage />} />
                 <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </div>
     </Router>
