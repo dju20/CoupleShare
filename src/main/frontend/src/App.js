@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
+import RegisterPage from "./registerpage";
+
 
 //test
 // 마이페이지 컴포넌트
@@ -40,9 +42,12 @@ const HomePage = () => (
         <h1>Home Page</h1>
         <p>Welcome to the Home Page!</p>
         <Link to="/mypage">Go to My Page</Link>
-        <br />
+        <Link to="/register">Login</Link>
+        <br/>
+
     </div>
 );
+
 
 // App 컴포넌트에서 라우팅을 설정
 const App = () => (
@@ -54,9 +59,12 @@ const App = () => (
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/mypage" element={<MyPage />} />
+                <Route path="/register" element={<RegisterPage />} />
             </Routes>
         </div>
     </Router>
 );
+
+
 
 export default App;
