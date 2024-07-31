@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './registerpage.css'
-
+import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
+import styles from './registerpage.css';
 
 function RegisterPage(props) {
 
@@ -9,62 +9,81 @@ function RegisterPage(props) {
     const [Name, setName] = useState("");
     const [Password, setPassword] = useState("");
     const [ConfirmPassword, setConfirmPassword] = useState("");
-    const [Sex, setSex] = useState("");
+    const [Sex, setSex] = useState("MALE"); // 기본 값을 "MALE"로 설정
+
+    const navigate = useNavigate(); // useNavigate 훅 사용
 
     const onIDHandler = (event) => {
         setID(event.currentTarget.value);
-    }
+    };
     const onNameHandler = (event) => {
         setName(event.currentTarget.value);
-    }
+    };
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value);
-    }
+    };
     const onConfirmPasswordHandler = (event) => {
         setConfirmPassword(event.currentTarget.value);
-    }
+    };
     const onSexHandler = (event) => {
         setSex(event.currentTarget.value);
-    }
-    const onSubmitHandler = (event) => {
+    };
+    const onSubmitHandler = async (event) => {
         event.preventDefault();
 
-        if(Password !== ConfirmPassword){
-            return alert('비밀번호와 비밀번호 확인이 같지 않습니다.')
+        if (Password !== ConfirmPassword) {
+            return alert('비밀번호와 비밀번호 확인이 같지 않습니다.');
         }
 
         let body = {
-            id: ID,
-            name: Name,
+            username: ID,
+            realName: Name,
             password: Password,
-            confirmPassword: ConfirmPassword,
+            sex: Sex
+        };
+
+        try {
+            const response = await fetch('http://localhost:8080/api/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (response.ok) {
+                alert('회원가입이 성공적으로 완료되었습니다.');
+                navigate('/login'); // 로그인 페이지로 리디렉션
+            } else {
+                throw new Error('Registration request failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('회원가입에 실패했습니다. 다시 시도해주세요.'); // 실패 시 경고창 띄움
         }
-
-
-    }
-
+    };
 
     return (
         <div style={{
             display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh', backgroundColor : "#868E96"
+            width: '100%', height: '100vh', backgroundColor: "#868E96"
         }}>
-            <form style={{display: 'flex', flexDirection: 'column', backgroundColor:"#E9ECEF",alignItems:'center',justifyContent:'center', width:'80%',height: '80vh',borderRadius:'30px'}}
+            <form style={{
+                display: 'flex', flexDirection: 'column', backgroundColor: "#E9ECEF", alignItems: 'center', justifyContent: 'center', width: '80%', height: '80vh', borderRadius: '30px'
+            }}
                   onSubmit={onSubmitHandler}
             >
-
-
-                <input type='text' value={Name} name="name" className="registerinput" onChange={onNameHandler} placeholder="성명"/>
-                <input type='text' value={ID} name="username" className="registerinput" onChange={onIDHandler} placeholder="아이디"/>
+                <input type='text' value={Name} name="realName" className="registerinput" onChange={onNameHandler} placeholder="성명" />
+                <input type='text' value={ID} name="username" className="registerinput" onChange={onIDHandler} placeholder="아이디" />
                 <input type='password' value={Password} name="password" className="registerinput" onChange={onPasswordHandler}
-                       placeholder="비밀번호"/>
+                       placeholder="비밀번호" />
                 <input type='password' value={ConfirmPassword} className="registerinput" name="confirmpassword"
-                       onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"/>
-                <select id="sex" className="registerinput" onChange={onSexHandler}>
+                       onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인" />
+                <select id="sex" value={Sex} onChange={onSexHandler}>
                     <option name="sex" value="MALE">남자</option>
                     <option name="sex" value="FEMALE">여자</option>
                 </select>
-                <br/>
+                <br />
                 <button type="submit">
                     회원가입
                 </button>

@@ -1,15 +1,50 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
 import './Login.css'; // 스타일시트를 import 합니다
 
 const Login = () => {
-    const [email, setEmail] = useState(''); // 이메일 상태 변수 선언
+    const [username, setUsername] = useState(''); // 아이디 상태 변수 선언
     const [password, setPassword] = useState(''); // 비밀번호 상태 변수 선언
+    const navigate = useNavigate(); // useNavigate 훅 사용
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); // 폼 제출 시 페이지 리로드 방지
-        // 로그인 로직을 여기에 추가
-        console.log('Email:', email); // 입력된 이메일 출력
-        console.log('Password:', password); // 입력된 비밀번호 출력
+        const loginData = {
+            username: username,
+            password: password
+        };
+
+        try {
+            const response = await fetch('http://localhost:8080/api/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Login request failed');
+            }
+
+            // 헤더에서 JWT 추출
+            const authHeader = response.headers.get('Authorization');
+            const token = authHeader ? authHeader.replace('Bearer ', '') : null;
+
+            if (token) {
+                console.log('Login successful, token:', token);
+                // 로그인 성공 후 처리 로직 추가
+                // 예: localStorage에 저장하고 홈으로 리디렉션
+                localStorage.setItem('authToken', token);
+                window.location.href = '/home'; // 홈 페이지로 리디렉션
+            } else {
+                console.error('Token not received');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('로그인 실패');
+            // 로그인 실패 후 처리 로직 추가
+        }
     };
 
     return (
@@ -27,8 +62,8 @@ const Login = () => {
                         type="text"
                         placeholder="아이디"
                         className="input-field"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} // 이메일 입력 핸들러
+                        value={username} // email 대신 username 사용
+                        onChange={(e) => setUsername(e.target.value)} // 아이디 입력 핸들러
                     />
                     <input
                         type="password"
@@ -51,35 +86,3 @@ const Login = () => {
 };
 
 export default Login; // Login 컴포넌트를 내보냅니다
-
-
-// export default function Login() {
-//     return (
-//         <div className="login">
-//             <div className="Login Title">Login</div>
-//             {/*Login 타이틀*/}
-//
-//             <div className="Login Content">
-//                 <div className="Login ID">ID</div>
-//                 {/*Login ID */}
-//                 <div className="input ID"> {/*Login ID 입력*/}
-//                     <input className="input" placeholder="ID"/> {/*Login ID 박스, 내부*/}
-//                 </div>
-//
-//                 <div className="Login PW">PW</div>
-//                 {/*Login PW 알림*/}
-//                 <div className="input PW"> {/*Login PW 입력*/}
-//                     <input className="input" placeholder="PW"/> {/*Login ID 박스, 내부*/}
-//                 </div>
-//
-//
-//                 <div> {/*Login 버튼*/}
-//                     <button>
-//                         Login
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//
-//     )
-// }
