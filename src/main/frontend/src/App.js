@@ -45,6 +45,8 @@ const HomePage = () => (
         <br/>
         <Link to="/login">Login</Link>
         <br/>
+        <Link to="/register">register</Link>
+        <br/>
     </div>
 );
 
