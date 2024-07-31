@@ -6,45 +6,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dju20.coupleshare.dto.CustomUserDetails;
+import dju20.coupleshare.entity.User;
+import dju20.coupleshare.repository.UsersRepository;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class TestController {
+	private final UsersRepository usersRepository;
 
 	//test  주석
 	@GetMapping("/user")
-	public User getUserData() {
-		System.out.println("come");
-		// 예시로 하드코딩된 사용자 정보 반환
-		return new User("수현", "suhyun9764@naver.com");
+	public User getUserData(@AuthenticationPrincipal CustomUserDetails userDetails) {
+		String username = userDetails.getUsername();
+		User user = usersRepository.findByUsername(username);
+		return user;
 	}
 
-	// 사용자 정보를 담는 DTO 클래스
-	public static class User {
-		private String name;
-		private String email;
 
-		public User(String name, String email) {
-			this.name = name;
-			this.email = email;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-	}
 
 	@GetMapping("/app/test")
 	public String testUser(@AuthenticationPrincipal CustomUserDetails userDetails) {
