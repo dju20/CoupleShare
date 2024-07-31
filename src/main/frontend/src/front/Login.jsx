@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css'; // 스타일시트를 import 합니다
+import TestLogo from '../img/Test-logo.png';
+import GoogleLogo from '../img/Google-logo.png';
+import KakaoLogo from '../img/Kakao-logo.png';
+import XLogo from '../img/X-logo.png';
 
 const Login = () => {
     const [email, setEmail] = useState(''); // 이메일 상태 변수 선언
@@ -10,17 +14,22 @@ const Login = () => {
         // 로그인 로직을 여기에 추가
         console.log('Email:', email); // 입력된 이메일 출력
         console.log('Password:', password); // 입력된 비밀번호 출력
+        console.log(`platform `); //클릭된 소셜 로그인 플랫폼 콘솔 출력
     };
 
     return (
         <div className="container"> {/* 컨테이너 */}
             <div className="left-panel"> {/* 왼쪽 패널 */}
-                <div className="logo-placeholder"></div> {/* 로고 자리 */}
+                <div className="logo-placeholder">
+                    <img src={TestLogo} alt="Logo" className="logo-img" />
+                </div> {/* 로고 자리 */}
             </div>
             <div className="right-panel"> {/* 오른쪽 패널 */}
                 <div className="nav"> {/* 네비게이션 링크 */}
                     <a href="#" className="nav-link">SIGNUP</a> {/* 회원가입 링크 */}
                     <a href="#" className="nav-link">LOGIN</a> {/* 로그인 링크 */}
+                </div>
+                <div className="test-box">
                 </div>
                 <div className="login-form"> {/* 로그인 폼 */}
                     <input
@@ -37,12 +46,28 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} // 비밀번호 입력 핸들러
                     />
-                    <div className="social-icons"> {/* 소셜 아이콘 */}
-                        <span className="icon">📮</span> {/* TV 아이콘 */}
-                        <span className="icon">📧</span> {/* 메시지 아이콘 */}
-                        <span className="icon">🔐</span> {/* 트위터 아이콘 */}
+                    <div className="social-logos"> {/* 소셜 로고 */}
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('Google')}
+                        >
+                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo" />
+                        </button>
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('Kakao')}
+                        >
+                            <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo"/>
+                        </button>
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('X')}
+                        >
+                            <img src={XLogo} alt="X 로그인" className="social-logo"/>
+                        </button>
+
                     </div>
-                    <a href="#" className="forgot-link">아이디 / 비밀번호 찾기</a> {/* 비밀번호 찾기 링크 */}
+                    <a href="#" className="find-link">아이디 / 비밀번호 찾기</a> {/* 비밀번호 찾기 링크 */}
                     <button className="login-button" onClick={handleSubmit}>로그인</button> {/* 로그인 버튼 */}
                 </div>
             </div>
