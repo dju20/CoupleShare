@@ -60,7 +60,7 @@ function RegisterPage(props) {
                        placeholder="비밀번호"/>
                 <input type='password' value={ConfirmPassword} className="registerinput" name="confirmpassword"
                        onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"/>
-                <select id="sex" onChange={onSexHandler}>
+                <select id="sex" className="registerinput" onChange={onSexHandler}>
                     <option name="sex" value="MALE">남자</option>
                     <option name="sex" value="FEMALE">여자</option>
                 </select>
