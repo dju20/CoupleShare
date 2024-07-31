@@ -2,5 +2,16 @@
     border-radius: 5px;
     border: none;
     width:25%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
+    height:3%;
+}
+
+.registerbtn{
+    border: none;
+    width: 10vh;
+}
+
+.registerbtn:hover{
+    background-color:#cccccc;
+    cursor: pointer;
 }

@@ -8,11 +8,15 @@ function RegisterPage(props) {
     const [Password, setPassword] = useState("");
     const [ConfirmPassword, setConfirmPassword] = useState("");
     const [Sex, setSex] = useState("MALE"); // 기본 값을 "MALE"로 설정
+    const [Email, setEmail] = useState("");
 
     const navigate = useNavigate(); // useNavigate 훅 사용
 
     const onIDHandler = (event) => {
         setID(event.currentTarget.value);
+    };
+    const onEMAILHandler = (event) => {
+        setEmail(event.currentTarget.value);
     };
     const onNameHandler = (event) => {
         setName(event.currentTarget.value);
@@ -37,6 +41,7 @@ function RegisterPage(props) {
             username: ID,
             realName: Name,
             password: Password,
+            email : Email,
             sex: Sex
         };
 
@@ -63,31 +68,54 @@ function RegisterPage(props) {
 
     return (
         <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh', backgroundColor: "#868E96"
+            display: 'flex', justifyContent: 'center', alignItems: 'center', width:'100vh',
+            height: '100vh', backgroundColor: "#868E96"
         }}>
             <form style={{
-                display: 'flex', flexDirection: 'column', backgroundColor: "#E9ECEF", alignItems: 'center', justifyContent: 'center', width: '80%', height: '80vh', borderRadius: '30px'
+                display: 'flex',
+                flexDirection: 'column',
+                backgroundColor: "#E9ECEF",
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '80%',
+                height: '80vh',
+                borderRadius: '30px'
             }}
                   onSubmit={onSubmitHandler}
             >
-                <input type='text' value={Name} name="realName" className="registerinput" onChange={onNameHandler} placeholder="성명" />
-                <input type='text' value={ID} name="username" className="registerinput" onChange={onIDHandler} placeholder="아이디" />
-                <input type='password' value={Password} name="password" className="registerinput" onChange={onPasswordHandler}
-                       placeholder="비밀번호" />
+                <input type='text' value={Name} name="realName" className="registerinput" onChange={onNameHandler}
+                       placeholder="성명"/>
+                <input type='email' value={Email} name="email" className="registerinput" onChange={onEMAILHandler}
+                       placeholder="이메일"/>
+                <input type='text' value={ID} name="username" className="registerinput" onChange={onIDHandler}
+                       placeholder="아이디"/>
+                <input type='password' value={Password} name="password" className="registerinput"
+                       onChange={onPasswordHandler}
+                       placeholder="비밀번호"/>
                 <input type='password' value={ConfirmPassword} className="registerinput" name="confirmpassword"
-                       onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인" />
-                <select id="sex" value={Sex} onChange={onSexHandler}>
-                    <option name="sex" value="MALE">남자</option>
-                    <option name="sex" value="FEMALE">여자</option>
-                </select>
-                <br />
-                <button type="submit">
-                    회원가입
-                </button>
-            </form>
-        </div>
-    );
+                       onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"/>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="radio" name="sex" value="male" onChange={onSexHandler}></input>
+                            남자
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="sex" value="female" onChange={onSexHandler}></input>
+                            여자
+                        </label>
+                    </li>
+                </ul>
+
+    <br/>
+    <button className="registerbtn" type="submit">
+        회원가입
+    </button>
+</form>
+</div>
+)
 }
 
 export default RegisterPage;
