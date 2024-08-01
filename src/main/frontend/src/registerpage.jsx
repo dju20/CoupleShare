@@ -97,13 +97,13 @@ function RegisterPage(props) {
                 <ul>
                     <li>
                         <label>
-                            <input type="radio" name="sex" value="male" onChange={onSexHandler}></input>
+                            <input type="radio" name="sex" value="MALE" onChange={onSexHandler}></input>
                             남자
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="radio" name="sex" value="female" onChange={onSexHandler}></input>
+                            <input type="radio" name="sex" value="FEMALE" onChange={onSexHandler}></input>
                             여자
                         </label>
                     </li>

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
 import './Login.css'; // 스타일시트를 import 합니다
+import TestLogo from '../img/Test-logo.png';
+import GoogleLogo from '../img/Google-logo.png';
+import KakaoLogo from '../img/Kakao-logo.png';
+import XLogo from '../img/X-logo.png';
 
 const Login = () => {
     const [username, setUsername] = useState(''); // 아이디 상태 변수 선언
@@ -50,20 +54,24 @@ const Login = () => {
     return (
         <div className="container"> {/* 컨테이너 */}
             <div className="left-panel"> {/* 왼쪽 패널 */}
-                <div className="logo-placeholder"></div> {/* 로고 자리 */}
+                <div className="logo-placeholder">
+                    <img src={TestLogo} alt="Logo" className="logo-img" />
+                </div> {/* 로고 자리 */}
             </div>
             <div className="right-panel"> {/* 오른쪽 패널 */}
                 <div className="nav"> {/* 네비게이션 링크 */}
                     <a href="#" className="nav-link">SIGNUP</a> {/* 회원가입 링크 */}
                     <a href="#" className="nav-link">LOGIN</a> {/* 로그인 링크 */}
                 </div>
+                <div className="test-box">
+                </div>
                 <div className="login-form"> {/* 로그인 폼 */}
                     <input
                         type="text"
                         placeholder="아이디"
                         className="input-field"
-                        value={username} // email 대신 username 사용
-                        onChange={(e) => setUsername(e.target.value)} // 아이디 입력 핸들러
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} // 이메일 입력 핸들러
                     />
                     <input
                         type="password"
@@ -72,12 +80,28 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} // 비밀번호 입력 핸들러
                     />
-                    <div className="social-icons"> {/* 소셜 아이콘 */}
-                        <span className="icon">📮</span> {/* TV 아이콘 */}
-                        <span className="icon">📧</span> {/* 메시지 아이콘 */}
-                        <span className="icon">🔐</span> {/* 트위터 아이콘 */}
+                    <div className="social-logos"> {/* 소셜 로고 */}
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('Google')}
+                        >
+                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo" />
+                        </button>
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('Kakao')}
+                        >
+                            <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo"/>
+                        </button>
+
+                        <button className="social-login"
+                                onClick={() => handleSubmit('X')}
+                        >
+                            <img src={XLogo} alt="X 로그인" className="social-logo"/>
+                        </button>
+
                     </div>
-                    <a href="#" className="forgot-link">아이디 / 비밀번호 찾기</a> {/* 비밀번호 찾기 링크 */}
+                    <a href="#" className="find-link">아이디 / 비밀번호 찾기</a> {/* 비밀번호 찾기 링크 */}
                     <button className="login-button" onClick={handleSubmit}>로그인</button> {/* 로그인 버튼 */}
                 </div>
             </div>
@@ -86,3 +110,35 @@ const Login = () => {
 };
 
 export default Login; // Login 컴포넌트를 내보냅니다
+
+
+// export default function Login() {
+//     return (
+//         <div className="login">
+//             <div className="Login Title">Login</div>
+//             {/*Login 타이틀*/}
+//
+//             <div className="Login Content">
+//                 <div className="Login ID">ID</div>
+//                 {/*Login ID */}
+//                 <div className="input ID"> {/*Login ID 입력*/}
+//                     <input className="input" placeholder="ID"/> {/*Login ID 박스, 내부*/}
+//                 </div>
+//
+//                 <div className="Login PW">PW</div>
+//                 {/*Login PW 알림*/}
+//                 <div className="input PW"> {/*Login PW 입력*/}
+//                     <input className="input" placeholder="PW"/> {/*Login ID 박스, 내부*/}
+//                 </div>
+//
+//
+//                 <div> {/*Login 버튼*/}
+//                     <button>
+//                         Login
+//                     </button>
+//                 </div>
+//             </div>
+//         </div>
+//
+//     )
+// }
