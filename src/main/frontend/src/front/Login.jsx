@@ -60,8 +60,8 @@ const Login = () => {
             </div>
             <div className="right-panel"> {/* 오른쪽 패널 */}
                 <div className="nav"> {/* 네비게이션 링크 */}
-                    <a href="#" className="nav-link">SIGNUP</a> {/* 회원가입 링크 */}
-                    <a href="#" className="nav-link">LOGIN</a> {/* 로그인 링크 */}
+                    <a href="/register" className="nav-link">SIGNUP</a> {/* 회원가입 링크 */}
+                    <a href="/login" className="nav-link">LOGIN</a> {/* 로그인 링크 */}
                 </div>
                 <div className="test-box">
                 </div>
@@ -70,8 +70,8 @@ const Login = () => {
                         type="text"
                         placeholder="아이디"
                         className="input-field"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} // 이메일 입력 핸들러
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)} // 이메일 입력 핸들러
                     />
                     <input
                         type="password"
