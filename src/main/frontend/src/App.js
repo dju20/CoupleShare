@@ -4,6 +4,7 @@ import axios from 'axios';
 import RegisterPage from "./registerpage";
 import Login from "./front/Login";
 import apiClient from './utils/apiClient';
+import RedirectPage from "./RedirectPage";
 
 // 마이페이지 컴포넌트
 const MyPage = () => {
@@ -78,6 +79,7 @@ const App = () => (
             </nav>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/redirect" element={<RedirectPage/>} />
                 <Route path="/mypage" element={<MyPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<Login />} />
