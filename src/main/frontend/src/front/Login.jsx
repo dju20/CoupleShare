@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
-import './Login.css'; // 스타일시트를 import 합니다
+import {useNavigate} from 'react-router-dom';
+import './Login.css';
 import TestLogo from '../img/Test-logo.png';
 import GoogleLogo from '../img/Google-logo.png';
 import KakaoLogo from '../img/Kakao-logo.png';
@@ -85,7 +85,7 @@ const Login = () => {
                         <button className="social-login"
                                 onClick={() => handleSubmit('Google')}
                         >
-                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo" />
+                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo"/>
                         </button>
 
                         <button className="social-login"
@@ -117,35 +117,3 @@ const Login = () => {
 };
 
 export default Login; // Login 컴포넌트를 내보냅니다
-
-
-// export default function Login() {
-//     return (
-//         <div className="login">
-//             <div className="Login Title">Login</div>
-//             {/*Login 타이틀*/}
-//
-//             <div className="Login Content">
-//                 <div className="Login ID">ID</div>
-//                 {/*Login ID */}
-//                 <div className="input ID"> {/*Login ID 입력*/}
-//                     <input className="input" placeholder="ID"/> {/*Login ID 박스, 내부*/}
-//                 </div>
-//
-//                 <div className="Login PW">PW</div>
-//                 {/*Login PW 알림*/}
-//                 <div className="input PW"> {/*Login PW 입력*/}
-//                     <input className="input" placeholder="PW"/> {/*Login ID 박스, 내부*/}
-//                 </div>
-//
-//
-//                 <div> {/*Login 버튼*/}
-//                     <button>
-//                         Login
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//
-//     )
-// }
