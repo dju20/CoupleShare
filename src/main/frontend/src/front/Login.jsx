@@ -4,7 +4,7 @@ import './Login.css';
 import TestLogo from '../img/Test-logo.png';
 import GoogleLogo from '../img/Google-logo.png';
 import KakaoLogo from '../img/Kakao-logo.png';
-import XLogo from '../img/X-logo.png';
+import NaverLogo from '../img/Naver-logo.png';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -94,8 +94,8 @@ const Login = () => {
                         <button className="social-login" onClick={() => handleSocialLogin('kakao')}>
                             <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo" />
                         </button>
-                        <button className="social-login" onClick={() => handleSocialLogin('x')}>
-                            <img src={XLogo} alt="X 로그인" className="social-logo" />
+                        <button className="social-login" onClick={() => handleSocialLogin('naver')}>
+                            <img src={NaverLogo} alt="X 로그인" className="social-logo" />
                         </button>
                     </div>
                     <a href="#" className="find-link">아이디 / 비밀번호 찾기</a>
