@@ -101,8 +101,15 @@ const Login = () => {
                         </button>
 
                     </div>
-                    <a href="#" className="find-link">아이디 / 비밀번호 찾기</a> {/* 비밀번호 찾기 링크 */}
-                    <button className="login-button" onClick={handleSubmit}>로그인</button> {/* 로그인 버튼 */}
+
+                    <div className="find">
+                        <a href="/FindID" className="find-link">아이디</a>
+                        <a> / </a>
+                        <a href="/FindPW" className="find-link">비밀번호 찾기</a>
+                    </div>
+
+                    <button className="login-button" onClick={handleSubmit}>로그인</button>
+                    {/* 로그인 버튼 */}
                 </div>
             </div>
         </div>

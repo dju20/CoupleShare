@@ -4,6 +4,7 @@ import axios from 'axios';
 import RegisterPage from "./registerpage";
 import Login from "./front/Login";
 import apiClient from './utils/apiClient';
+import FindID from "./front/FindID";
 
 // 마이페이지 컴포넌트
 const MyPage = () => {
@@ -81,6 +82,8 @@ const App = () => (
                 <Route path="/mypage" element={<MyPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/FindID" element={<FindID />} />
+                {/*<Route path="/FindPW" element={<FindPW />} />*/}
             </Routes>
         </div>
     </Router>
