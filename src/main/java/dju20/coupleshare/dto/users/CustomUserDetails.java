@@ -1,4 +1,4 @@
-package dju20.coupleshare.dto;
+package dju20.coupleshare.dto.users;
 
 import java.util.ArrayList;
 import java.util.Collection;

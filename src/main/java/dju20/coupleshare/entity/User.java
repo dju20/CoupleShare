@@ -31,12 +31,13 @@ public class User {
 	private String profileImg;
 	private String email;
 	private String provider;
+	private String providerId;
 
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 
 	@Builder
-	public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, UserRole role) {
+	public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, String providerId, UserRole role) {
 		this.username = username;
 		this.sex = sex;
 		this.password = password;
@@ -44,6 +45,7 @@ public class User {
 		this.profileImg = profileImg;
 		this.email = email;
 		this.provider = provider;
+		this.providerId = providerId;
 		this.role = role;
 	}
 

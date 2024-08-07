@@ -1,12 +1,14 @@
 package dju20.coupleshare.jwt;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import dju20.coupleshare.dto.CustomUserDetails;
+import dju20.coupleshare.dto.users.CustomUserDetails;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.enums.users.UserRole;
 import jakarta.servlet.FilterChain;
@@ -24,14 +26,27 @@ public class JwtFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
 		FilterChain filterChain) throws ServletException, IOException {
 		String authorization = request.getHeader("Authorization");
-		if(authorization == null || !authorization.startsWith("Bearer ")){
-			System.out.println("token null");
-			filterChain.doFilter(request,response);
+		String token = null;
 
+		if(authorization==null){
+			token = Optional.ofNullable(request.getCookies())
+				.flatMap(cookies -> Arrays.stream(cookies)
+					.filter(cookie -> "Authorization".equals(cookie.getName()))
+					.map(cookie -> cookie.getValue())
+					.findFirst())
+				.orElse(null);
+		}
+		else if(authorization != null || authorization.startsWith("Bearer ")){
+			token = authorization.split(" ")[1];
+		}
+
+
+		if (token == null || jwtUtil.isExpired(token)) {
+			System.out.println("token null or expired");
+			filterChain.doFilter(request, response);
 			return;
 		}
 
-		String token = authorization.split(" ")[1];
 
 		if(jwtUtil.isExpired(token)){
 			System.out.println("token expired");

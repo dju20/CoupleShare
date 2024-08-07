@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dju20.coupleshare.dto.CustomUserDetails;
+import dju20.coupleshare.dto.users.CustomUserDetails;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;

@@ -37,3 +37,22 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 50px;
+  padding: 1rem;
+  color: white;
+  background: antiquewhite;
+  font-weight: bold;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+
+}

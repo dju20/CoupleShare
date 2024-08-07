@@ -4,6 +4,10 @@ import axios from 'axios';
 import RegisterPage from "./registerpage";
 import Login from "./front/Login";
 import apiClient from './utils/apiClient';
+import RedirectPage from "./RedirectPage";
+import styles from "./App.css"
+import Sidebar from "./sidebar";
+import FindID from "./front/FindID";
 
 // 마이페이지 컴포넌트
 const MyPage = () => {
@@ -57,8 +61,8 @@ const MyPage = () => {
 // 홈 페이지 컴포넌트
 const HomePage = () => (
     <div>
-        <h1>Home Page</h1>
-        <p>Welcome to the Home Page</p>
+        <h1>Couple Share</h1>
+        <p>Welcome to the CoupleShare</p>
         <Link to="/mypage">Go to My Page</Link>
         <br/>
         <Link to="/login">Login</Link>
@@ -73,14 +77,19 @@ const HomePage = () => (
 const App = () => (
     <Router>
         <div>
-            <nav>
-                <Link to="/">Home</Link> | <Link to="/mypage">My Page</Link>
+            <nav className="header" >
+                <Link to="/" style={{textDecoration:"none" , color: "black", textAlign:"center"}} className="header-home">Couple Share</Link>
+
+                <Sidebar/>
             </nav>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/redirect" element={<RedirectPage/>} />
                 <Route path="/mypage" element={<MyPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/FindID" element={<FindID />} />
+                {/*<Route path="/FindPW" element={<FindPW />} />*/}
             </Routes>
         </div>
     </Router>

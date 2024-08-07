@@ -1,10 +1,12 @@
 package dju20.coupleshare.config;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -14,9 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
+import dju20.coupleshare.CustomAuthHandler;
 import dju20.coupleshare.jwt.JwtFilter;
 import dju20.coupleshare.jwt.JwtUtil;
 import dju20.coupleshare.jwt.LoginFilter;
+import dju20.coupleshare.service.CustomOAuth2UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
@@ -26,6 +30,8 @@ public class SecurityConfig {
 
 	private final AuthenticationConfiguration authenticationConfiguration;
 	private final JwtUtil jwtUtil;
+	private final CustomOAuth2UserService customOAuth2UserService;
+	private final CustomAuthHandler customSuccessHandler;
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -53,7 +59,8 @@ public class SecurityConfig {
 						corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
 						corsConfiguration.setMaxAge(3600L);
 
-						corsConfiguration.setExposedHeaders(Collections.singletonList("Authorization"));
+						corsConfiguration.setExposedHeaders(Arrays.asList("Authorization", "Set-Cookie"));
+
 
 						return corsConfiguration;
 					}
@@ -68,13 +75,20 @@ public class SecurityConfig {
 			.httpBasic((auth) -> auth.disable());
 
 		http
+			.oauth2Login((oauth2)->oauth2
+				.userInfoEndpoint((userInfoEndpointConfig -> userInfoEndpointConfig
+					.userService(customOAuth2UserService)))
+				.successHandler(customSuccessHandler));
+		http
 			.authorizeHttpRequests((auth) -> auth
 				.requestMatchers("/api/users/**").permitAll()
 				.requestMatchers("/api/app/**").hasRole("USER")
 				.anyRequest().authenticated());
 
 		http
-			.addFilterBefore(new JwtFilter(jwtUtil), LoginFilter.class);
+			.addFilterAfter(new JwtFilter(jwtUtil), LoginFilter.class);
+
+
 
 		LoginFilter loginFilter = new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil);
 		loginFilter.setFilterProcessesUrl("/api/users/login");
