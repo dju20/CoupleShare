@@ -37,7 +37,7 @@ const Login = () => {
             if (token) {
                 console.log('Login successful, token:', token);
                 localStorage.setItem('authToken', token);
-                navigate('/home');
+                navigate('/');
             } else {
                 console.error('Token not received');
             }
@@ -98,8 +98,15 @@ const Login = () => {
                             <img src={NaverLogo} alt="X 로그인" className="social-logo" />
                         </button>
                     </div>
-                    <a href="#" className="find-link">아이디 / 비밀번호 찾기</a>
+
+                    <div className="find">
+                        <a href="/FindID" className="find-link">아이디</a>
+                        <a> / </a>
+                        <a href="/FindPW" className="find-link">비밀번호 찾기</a>
+                    </div>
+
                     <button className="login-button" onClick={handleSubmit}>로그인</button>
+                    {/* 로그인 버튼 */}
                 </div>
             </div>
         </div>
