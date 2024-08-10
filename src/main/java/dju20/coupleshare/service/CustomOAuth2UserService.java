@@ -8,12 +8,11 @@ import org.springframework.security.oauth2.core.OAuth2AuthorizationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import dju20.coupleshare.dto.users.CustomOAuth2User;
-import dju20.coupleshare.dto.users.GoogleResponse;
-import dju20.coupleshare.dto.users.LoginDto;
-import dju20.coupleshare.dto.users.NaverResponse;
-import dju20.coupleshare.dto.users.OAuth2Response;
-import dju20.coupleshare.dto.users.SocialLoginDto;
+import dju20.coupleshare.dto.users.login.CustomOAuth2User;
+import dju20.coupleshare.dto.users.response.GoogleResponse;
+import dju20.coupleshare.dto.users.response.NaverResponse;
+import dju20.coupleshare.dto.users.response.OAuth2Response;
+import dju20.coupleshare.dto.users.login.SocialLoginDto;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.enums.users.UserRole;
 import dju20.coupleshare.repository.UsersRepository;
@@ -61,6 +60,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 				.realName(oAuth2Response.getName())
 				.provider(oAuth2Response.getProvider())
 				.providerId(oAuth2Response.getProviderId())
+				.isCouple(false)
 				.sex(oAuth2Response.getGender())
 				.role(UserRole.ROLE_USER)
 				.build();

@@ -1,4 +1,4 @@
-package dju20.coupleshare.dto.users;
+package dju20.coupleshare.dto.users.login;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
+import dju20.coupleshare.dto.users.login.SocialLoginDto;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

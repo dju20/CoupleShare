@@ -1,10 +1,10 @@
-package dju20.coupleshare.dto.users;
+package dju20.coupleshare.dto.users.response;
 
 import java.util.Map;
 
 import dju20.coupleshare.enums.users.Sex;
 
-public class NaverResponse implements OAuth2Response{
+public class NaverResponse implements OAuth2Response {
 
 	private final Map<String ,Object> attribute;
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dju20.coupleshare.dto.users.RegisterDto;
+import dju20.coupleshare.dto.users.register.RegisterDto;
 import dju20.coupleshare.service.UsersService;
 import lombok.RequiredArgsConstructor;
 
