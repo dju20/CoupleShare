@@ -8,6 +8,7 @@ import RedirectPage from "./RedirectPage";
 import styles from "./App.css"
 import Sidebar from "./sidebar";
 import FindID from "./front/FindID";
+import CoupleMatching from "./CoupleMatching";
 
 // 마이페이지 컴포넌트
 const MyPage = () => {
@@ -89,6 +90,7 @@ const App = () => (
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/FindID" element={<FindID />} />
+                <Route path="/CoupleMatching" element={<CoupleMatching />} />
                 {/*<Route path="/FindPW" element={<FindPW />} />*/}
             </Routes>
         </div>
