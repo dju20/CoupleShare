@@ -5,6 +5,7 @@ import RegisterPage from "./registerpage";
 import Login from "./front/Login";
 import apiClient from './utils/apiClient';
 import FindID from "./front/FindID";
+/*import FindPW from "./front/FindPW";*/
 
 // 마이페이지 컴포넌트
 const MyPage = () => {

@@ -38,32 +38,36 @@ const Login = () => {
 
             if (token) {
                 console.log('Login successful, token:', token);
-                // 로그인 성공 후 처리 로직 추가
-                // 예: localStorage에 저장하고 홈으로 리디렉션
                 localStorage.setItem('authToken', token);
-                window.location.href = '/home'; // 홈 페이지로 리디렉션
+                navigate('/home');
             } else {
                 console.error('Token not received');
             }
         } catch (error) {
             console.error('Error:', error);
             alert('로그인 실패');
-            // 로그인 실패 후 처리 로직 추가
+            navigate('/login');
         }
     };
 
-    return (
-        <div className="container"> {/* 컨테이너 */}
+    const handleSocialLogin = (provider) => {
+        console.log(`${provider} login clicked`);
+        // +소셜 로그인 API 호출 처리 로직 추가
+    };
 
-            <div className="left-panel"> {/* 왼쪽 패널 */}
+    return (
+        <div className="container">
+
+            <div className="left-panel">
                 <div className="logo-placeholder">
                     <img src={TestLogo} alt="Logo" className="logo-img" />
-                </div> {/* 로고 자리 */}
+                </div>
             </div>
 
-            <div className="right-panel"> {/* 오른쪽 패널 */}
+            <div className="right-panel">
 
-                <div className="login-form"> {/* 로그인 폼 */}
+                <form className="LoginForm" onSubmit={handleSubmit}>
+                <div className="login-form">
                     <input
                         type="text"
                         placeholder="아이디"
@@ -81,23 +85,19 @@ const Login = () => {
 
                     <div className="social-logos"> {/* 소셜 로고 */}
 
-                        <button className="social-login"
-                                onClick={() => handleSubmit('Google')}
-                        >
-                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo"/>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Google')}>
+                            <img src={GoogleLogo} alt="Google 로그인" className="social-logo-img"/>
                         </button>
 
-                        <button className="social-login"
-                                onClick={() => handleSubmit('Kakao')}
-                        >
-                            <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo"/>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Kakao')}>
+                            <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo-img"/>
                         </button>
 
-                        <button className="social-login"
-                                onClick={() => handleSubmit('Naver')}
-                        >
-                            <img src={NaverLogo} alt="Naver 로그인" className="social-logo"/>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Naver')}>
+                            <img src={NaverLogo} alt="Naver 로그인" className="social-logo-img"/>
                         </button>
+                        {/*type="button" 추가로 소셜 로그인 폼 제출을 트리거 하지 않아도 됨*/}
+
                     </div>
 
                     <div className="find">
@@ -106,12 +106,13 @@ const Login = () => {
                         <a href="/FindPW" className="find-link">비밀번호 찾기</a>
                     </div>
 
-                    <button className="login-button" onClick={handleSubmit}>로그인</button>
+                    <button className="login-button" type="submit">로그인</button>
 
                 </div>
+                </form>
             </div>
         </div>
     );
 };
 
-export default Login; // Login 컴포넌트를 내보냅니다
+export default Login;

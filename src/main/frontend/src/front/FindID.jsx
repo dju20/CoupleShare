@@ -6,6 +6,8 @@ import TestLogo from '../img/Test-logo.png';
 const FindID = () => {
     const [email, setEmail] = useState(''); // 이메일 상태 변수 선언
     const [name, setName] = useState('');
+    const [findID, setfindID] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate(); // useNavigate 훅 사용
 
     const handleSubmit = async (event) => {
@@ -29,24 +31,37 @@ const FindID = () => {
                 throw new Error('Find Request failed');
             }
 
+            const data = await response.json();
+            setfindID(data.id);
+            setShowPopup(true);
+
             alert('아이디 찾기 요청이 완료되었습니다.');
             navigate('/login'); // 로그인 페이지로 리디렉션
 
-        } catch (error) {
+        }
+
+        catch (error) {
             console.error('Error:', error);
-            alert('아이디 찾기 요청에 실패했습니다.');
+            alert('아이디를 찾을 수 없습니다.');
         }
     };
 
+    const handleClosePopup = () => {
+        setShowPopup(false);
+    };
+
     return (
-        <div className="F-ID-container"> {/* 메인 컨테이너 */}
-            <div className="F-ID-left-panel"> {/* 왼쪽 패널 */}
+        <div className="F-ID-container">
+
+            <div className="F-ID-left-panel">
                 <div className="F-ID-logo-placehorder">
                     <img src={TestLogo} alt="Logo" className="logo-img"/>
                 </div>
             </div>
-            <div className="F-ID-right-panel"> {/* 오른쪽 패널 */}
+
+            <div className="F-ID-right-panel">
                 <form className="F-ID-find-form" onSubmit={handleSubmit}>
+
                     <input
                         type="name"
                         placeholder="이름을 입력하세요"
@@ -62,10 +77,15 @@ const FindID = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+
+                    <button className="F-ID-Find-button" type="submit">아이디 찾기</button>
                 </form>
 
-                <button className="F-ID-Find-button" onClick={{handleSubmit}}>아이디 찾기</button>
-
+                {findID && (
+                    <div className={`F-ID-Show-id ${showPopup ? 'show' : ''}`} onClick={handleClosePopup}>
+                        찾은 아이디: {findID}
+                    </div>
+                )}
             </div>
         </div>
     );
