@@ -4,7 +4,7 @@ import './Login.css';
 import TestLogo from '../img/Test-logo.png';
 import GoogleLogo from '../img/Google-logo.png';
 import KakaoLogo from '../img/Kakao-logo.png';
-import XLogo from '../img/X-logo.png';
+import NaverLogo from '../img/Naver-logo.png';
 
 const Login = () => {
     const [username, setUsername] = useState(''); // 아이디 상태 변수 선언
@@ -13,6 +13,7 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // 폼 제출 시 페이지 리로드 방지
+
         const loginData = {
             username: username,
             password: password
@@ -53,18 +54,15 @@ const Login = () => {
 
     return (
         <div className="container"> {/* 컨테이너 */}
+
             <div className="left-panel"> {/* 왼쪽 패널 */}
                 <div className="logo-placeholder">
                     <img src={TestLogo} alt="Logo" className="logo-img" />
                 </div> {/* 로고 자리 */}
             </div>
+
             <div className="right-panel"> {/* 오른쪽 패널 */}
-                <div className="nav"> {/* 네비게이션 링크 */}
-                    <a href="/register" className="nav-link">SIGNUP</a> {/* 회원가입 링크 */}
-                    <a href="/login" className="nav-link">LOGIN</a> {/* 로그인 링크 */}
-                </div>
-                <div className="test-box">
-                </div>
+
                 <div className="login-form"> {/* 로그인 폼 */}
                     <input
                         type="text"
@@ -80,6 +78,7 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} // 비밀번호 입력 핸들러
                     />
+
                     <div className="social-logos"> {/* 소셜 로고 */}
 
                         <button className="social-login"
@@ -95,21 +94,20 @@ const Login = () => {
                         </button>
 
                         <button className="social-login"
-                                onClick={() => handleSubmit('X')}
+                                onClick={() => handleSubmit('Naver')}
                         >
-                            <img src={XLogo} alt="X 로그인" className="social-logo"/>
+                            <img src={NaverLogo} alt="Naver 로그인" className="social-logo"/>
                         </button>
-
                     </div>
 
                     <div className="find">
                         <a href="/FindID" className="find-link">아이디</a>
-                        <a> / </a>
+                        <a style={{fontSize: '18px'}}> / </a>
                         <a href="/FindPW" className="find-link">비밀번호 찾기</a>
                     </div>
 
                     <button className="login-button" onClick={handleSubmit}>로그인</button>
-                    {/* 로그인 버튼 */}
+
                 </div>
             </div>
         </div>
