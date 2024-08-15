@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dju20.coupleshare.dto.users.response.UserResponseDto;
-import dju20.coupleshare.dto.users.search.FindUserByEmailDto;
-import dju20.coupleshare.entity.User;
+import dju20.coupleshare.dto.users.search.FindUserByFriendCodeDto;
 import dju20.coupleshare.service.UsersService;
 import lombok.RequiredArgsConstructor;
 
@@ -20,9 +19,9 @@ import lombok.RequiredArgsConstructor;
 public class SearchController {
 	private final UsersService usersService;
 	@PostMapping("/user")
-	public ResponseEntity<UserResponseDto> searchUser(@RequestBody FindUserByEmailDto findUserByEmailDto){
+	public ResponseEntity<UserResponseDto> searchUser(@RequestBody FindUserByFriendCodeDto findUserByFriendCodeDto){
 		try{
-			Optional<UserResponseDto> userResponseDto = usersService.findUserByEmail(findUserByEmailDto);
+			Optional<UserResponseDto> userResponseDto = usersService.findUserByFriendCode(findUserByFriendCodeDto);
 			if(userResponseDto.isPresent())
 				return ResponseEntity.ok(userResponseDto.get());
 

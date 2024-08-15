@@ -3,6 +3,6 @@ package dju20.coupleshare.dto.users.search;
 import lombok.Getter;
 
 @Getter
-public class FindUserByEmailDto {
-	private String email;
+public class FindUserByFriendCodeDto {
+	private String friendCode;
 }

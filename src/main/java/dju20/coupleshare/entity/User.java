@@ -40,7 +40,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 
-	private String FriendCode;
+	private String friendCode;
 
 	// @Builder
 	// public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, String providerId, Boolean isCouple, UserRole role) {
