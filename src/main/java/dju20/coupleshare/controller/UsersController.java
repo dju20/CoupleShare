@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dju20.coupleshare.dto.users.register.RegisterDto;
-import dju20.coupleshare.service.UsersService;
+import dju20.coupleshare.service.users.UsersServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UsersController {
-	private final UsersService usersService;
+	private final UsersServiceImpl usersServiceImpl;
 
 	@PostMapping("/register")
 	public ResponseEntity<?> register(@RequestBody RegisterDto registerDto) {
 
 		try {
-			usersService.saveUser(registerDto);
+			usersServiceImpl.saveUser(registerDto);
 			return ResponseEntity.ok().build();
 		} catch (Exception exception) {
 			return ResponseEntity.badRequest().build();

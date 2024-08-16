@@ -6,7 +6,6 @@ import java.util.Collections;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -20,7 +19,7 @@ import dju20.coupleshare.CustomAuthHandler;
 import dju20.coupleshare.jwt.JwtFilter;
 import dju20.coupleshare.jwt.JwtUtil;
 import dju20.coupleshare.jwt.LoginFilter;
-import dju20.coupleshare.service.CustomOAuth2UserService;
+import dju20.coupleshare.service.users.CustomOAuth2UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package dju20.coupleshare.service;
+package dju20.coupleshare.service.users;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
