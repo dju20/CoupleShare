@@ -35,7 +35,7 @@ public class UsersServiceImpl implements UsersService {
 			.role(UserRole.ROLE_USER)
 			.isCouple(false)
 			.friendCode(commonUtilService.generateUniqueFriendCode())
-			.provider("LOCAL")
+			.provider("local")
 			.build();
 
 		usersRepository.save(user);
