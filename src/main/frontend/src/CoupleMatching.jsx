@@ -22,13 +22,13 @@ function CoupleMatching() {
             setError('');
             setRequestSent(false);
 
-            // API 호출을 통해 사용자를 검색 (POST 방식으로 JSON 데이터 전송)
+            // API 호출을 통해 사용자를 검색 (GET 방식으로 friendCode를 path로 전달)
             if (!friendCode) {
                 setError('친구 코드를 입력해주세요.');
                 return;
             }
 
-            const response = await apiClient.post('/app/search/user', { friendCode });
+            const response = await apiClient.get(`/users/${friendCode}`);
             console.log(response.data); // 응답 데이터 확인
             setUser(response.data);
         } catch (error) {
