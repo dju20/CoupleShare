@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
-import styles from './registerpage.css';
+import styles from '../css/registerpage.css';
 
 function RegisterPage(props) {
     const [ID, setID] = useState("");
@@ -96,16 +96,8 @@ function RegisterPage(props) {
                        onChange={onConfirmPasswordHandler} placeholder="비밀번호 확인"/>
                 <ul>
                     <li>
-                        <label>
-                            <input type="radio" name="sex" value="MALE" onChange={onSexHandler}></input>
-                            남자
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="sex" value="FEMALE" onChange={onSexHandler}></input>
-                            여자
-                        </label>
+                        <input type="radio" name="sex" value="MALE" onChange={onSexHandler}></input>남자
+                        <input type="radio" name="sex" value="FEMALE" onChange={onSexHandler}></input>여자
                     </li>
                 </ul>
 

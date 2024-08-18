@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
-import RegisterPage from "./registerpage";
+import RegisterPage from "./pages/page/registerpage";
 import Login from "./front/Login";
 import apiClient from './utils/apiClient';
-import RedirectPage from "./RedirectPage";
+import RedirectPage from "./pages/page/RedirectPage";
 import styles from "./App.css"
-import Sidebar from "./sidebar";
 import FindID from "./front/FindID";
+import handleSubmit from "./front/Login";
+import HomePage from './pages/page/HomePage';
 
 // 마이페이지 컴포넌트
 const MyPage = () => {
@@ -58,43 +59,26 @@ const MyPage = () => {
     );
 };
 
-// 홈 페이지 컴포넌트
-const HomePage = () => (
-    <div>
-        <h1>Couple Share</h1>
-        <p>Welcome to the CoupleShare</p>
-        <Link to="/mypage">Go to My Page</Link>
-        <br/>
-        <Link to="/login">Login</Link>
-        <br/>
-        <Link to="/register">register</Link>
-        <br/>
-    </div>
-);
+
 
 
 // App 컴포넌트에서 라우팅을 설정
-const App = () => (
-    <Router>
-        <div>
-            <nav className="header" >
-                <Link to="/" style={{textDecoration:"none" , color: "black", textAlign:"center"}} className="header-home">Couple Share</Link>
+const App = () => {
 
-                <Sidebar/>
-            </nav>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/redirect" element={<RedirectPage/>} />
-                <Route path="/mypage" element={<MyPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/FindID" element={<FindID />} />
-                {/*<Route path="/FindPW" element={<FindPW />} />*/}
-            </Routes>
-        </div>
-    </Router>
-);
-
+    return (
+        <Router>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/redirect" element={<RedirectPage/>}/>
+                    <Route path="/mypage" element={<MyPage/>}/>
+                    <Route path="/register" element={<RegisterPage/>}/>
+                    <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
+                    <Route path="/FindID" element={<FindID/>}/>
+                    {/*<Route path="/FindPW" element={<FindPW />} />*/}
+                </Routes>
+        </Router>
+    );
+};
 
 
 export default App;

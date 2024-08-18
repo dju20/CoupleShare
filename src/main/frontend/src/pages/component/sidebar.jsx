@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import './registerpage.css';
 import {Link} from "react-router-dom";
+import '../css/sidebar.css'
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -13,7 +13,7 @@ const Sidebar = () => {
     return (
         <div>
             <button className={`sidebar-toggle ${isOpen ? 'open' : 'closed'}`} onClick={toggleSidebar}>
-                {isOpen ? '✖' : '☰'}
+                {isOpen ? '〈' : '〉'}
             </button>
             <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
                 <h2><Link to="/" >Couple share</Link></h2>
