@@ -6,9 +6,9 @@ import React, {useState} from "react";
 const header = () => {
     const [LoggedIn, setLoggedIn] = useState(false); // 로그인 상태를 관리하는 state
 
-    const handleLogin = () => {
+    /*const handleLogin = () => {
         setLoggedIn(true); // 로그인 시 상태 변경
-    };
+    };*/
 
     const handleLogout = () => {
         setLoggedIn(false); // 로그아웃 시 상태 변경
