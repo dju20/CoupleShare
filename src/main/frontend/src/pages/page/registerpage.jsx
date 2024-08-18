@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate를 import 합니다
 import styles from '../css/registerpage.css';
+import Header from "./header";
 
 function RegisterPage(props) {
     const [ID, setID] = useState("");
@@ -71,6 +72,7 @@ function RegisterPage(props) {
             display: 'flex', justifyContent: 'center', alignItems: 'center', width:'100vh',
             height: '100vh', backgroundColor: "#868E96"
         }}>
+            <Header/>
             <form style={{
                 display: 'flex',
                 flexDirection: 'column',

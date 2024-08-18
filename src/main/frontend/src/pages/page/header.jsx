@@ -3,7 +3,7 @@ import Sidebar from "../component/sidebar";
 import React, {useState} from "react";
 
 
-const header = () => {
+const Header = () => {
     const [LoggedIn, setLoggedIn] = useState(false); // 로그인 상태를 관리하는 state
 
     /*const handleLogin = () => {
@@ -35,5 +35,5 @@ return (
 
 };
 
-export default header;
+export default Header;
 

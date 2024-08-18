@@ -5,6 +5,7 @@ import TestLogo from '../../img/Test-logo.png';
 import GoogleLogo from '../../img/Google-logo.png';
 import KakaoLogo from '../../img/Kakao-logo.png';
 import NaverLogo from '../../img/Naver-logo.png';
+import Header from "./header";
 
 const Login = () => {
     const [username, setUsername] = useState(''); // 아이디 상태 변수 선언
@@ -56,7 +57,9 @@ const Login = () => {
     };
 
     return (
+
         <div className="container">
+            <Header/>
 
             <div className="left-panel">
                 <div className="logo-placeholder">
