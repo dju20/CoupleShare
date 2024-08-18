@@ -27,10 +27,8 @@ body
     padding: 35px;
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
-}
 
-.left-panel /*스타일*/
-{
+    /*스타일*/
     background-color: #E9ECEF;
 }
 
@@ -82,14 +80,14 @@ body
     font-size: 18px;
 }
 
-.social-logos /*레이아웃*/
+.social-logos
 {
     display: flex;
-    justify-content: flex-start; /* 버튼을 왼쪽으로 정렬 */
-    margin-bottom: 15px; /* 아래쪽 여백 설정 */
+    justify-content: flex-start; /*버튼을 왼쪽으로 정렬*/
+    margin-bottom: 15px;
 }
 
-.social-login /*기능*/
+.social-login
 {
     display: flex;
     width: 20px;
@@ -105,8 +103,8 @@ body
 
 .social-logo-img
 {
-    width: 22px; /* 이미지 너비 설정 */
-    height: auto; /* 이미지 높이 자동 조정 */
+    width: 22px;
+    height: auto;
 }
 
 .find
@@ -124,8 +122,9 @@ body
     font-size: 15px
 }
 
-.login-button /*레이아웃*/
+.login-button
 {
+    /*레이아웃*/
     width: 80%;
     padding: 15px;
     border: none;

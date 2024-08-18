@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './FindID.css';
-import TestLogo from '../img/Test-logo.png';
+import '../css/FindID.css';
+import TestLogo from '../../../public/img/Test-logo.png';
 
 const FindID = () => {
     const [email, setEmail] = useState(''); // 이메일 상태 변수 선언

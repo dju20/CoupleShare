@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import './Login.css';
-import TestLogo from '../img/Test-logo.png';
-import GoogleLogo from '../img/Google-logo.png';
-import KakaoLogo from '../img/Kakao-logo.png';
-import NaverLogo from '../img/Naver-logo.png';
+import '../css/Login.css';
+import TestLogo from '../../../public/img/Test-logo.png';
+import GoogleLogo from '../../../public/img/Google-logo.png';
+import KakaoLogo from '../../../public/img/Kakao-logo.png';
+import NaverLogo from '../../../public/img/Naver-logo.png';
 
 const Login = () => {
     const [username, setUsername] = useState(''); // 아이디 상태 변수 선언
@@ -101,9 +101,9 @@ const Login = () => {
                     </div>
 
                     <div className="find">
-                        <a href="/FindID" className="find-link">아이디</a>
+                        <a href="/page/FindID" className="find-link">아이디</a>
                         <a style={{fontSize: '18px'}}> / </a>
-                        <a href="/FindPW" className="find-link">비밀번호 찾기</a>
+                        <a href="/page/FindPW" className="find-link">비밀번호 찾기</a>
                     </div>
 
                     <button className="login-button" type="submit">로그인</button>

@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import RegisterPage from "./registerpage";
-import Login from "./front/Login";
+import Login from "./pages/page/Login";
 import apiClient from './utils/apiClient';
-import FindID from "./front/FindID";
+import FindID from "./pages/page/FindID";
 /*import FindPW from "./front/FindPW";*/
 
 // 마이페이지 컴포넌트
