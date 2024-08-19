@@ -1,5 +1,6 @@
 package dju20.coupleshare.service.users;
 
+import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,10 +19,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		User userData = usersRepository.findByUsername(username);
+		Optional<User> userData = usersRepository.findByUsername(username);
 
-		if(userData!=null){
-			return new CustomUserDetails(userData);
+		if(userData.isPresent()){
+			return new CustomUserDetails(userData.get());
 		}
 		return null;
 	}
