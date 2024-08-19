@@ -6,6 +6,7 @@ import FindID from "./pages/page/FindID";
 import HomePage from './pages/page/HomePage';
 import MyPage from "./pages/page/mypage";
 import CoupleMatching from "./pages/page/CoupleMatching";
+import RedirectPage from "./pages/page/RedirectPage";
 
 // 마이페이지 컴포넌트
 
@@ -21,6 +22,7 @@ const App = () => (
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/FindID" element={<FindID/>}/>
                 <Route path="/CoupleMatching" element={<CoupleMatching/>}/>
+                <Route path="/redirect" element={<RedirectPage/>} />
                 {/*<Route path="/FindPW" element={<FindPW />} />*/}
             </Routes>
         </div>
