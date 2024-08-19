@@ -1,0 +1,10 @@
+.test-box
+{
+    width: 100px; /* 박스 너비 */
+    height: 100px; /* 박스 높이 */
+    background-color: #D3B42D; /* 배경색 */
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 0; /* 하단에서 0px 위치 */
+    justify-content: center; /*수평 중앙 정렬*/
+    margin: 20px; /* 하단 및 오른쪽으로 20px 여백 */
+}
