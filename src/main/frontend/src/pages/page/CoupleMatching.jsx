@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import apiClient from './utils/apiClient'; // apiClient를 임포트합니다
+import apiClient from '../../utils/apiClient'; // apiClient를 임포트합니다
 
 function CoupleMatching() {
     // FriendCode 입력 상태 관리
