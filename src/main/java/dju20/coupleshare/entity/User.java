@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,22 +35,26 @@ public class User {
 	private String email;
 	private String provider;
 	private String providerId;
+	private Boolean isCouple;
 
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 
-	@Builder
-	public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, String providerId, UserRole role) {
-		this.username = username;
-		this.sex = sex;
-		this.password = password;
-		this.realName = realName;
-		this.profileImg = profileImg;
-		this.email = email;
-		this.provider = provider;
-		this.providerId = providerId;
-		this.role = role;
-	}
+	private String friendCode;
+
+	// @Builder
+	// public User(String username, Sex sex, String password, String realName, String profileImg, String email, String provider, String providerId, Boolean isCouple, UserRole role) {
+	// 	this.username = username;
+	// 	this.sex = sex;
+	// 	this.password = password;
+	// 	this.realName = realName;
+	// 	this.profileImg = profileImg;
+	// 	this.email = email;
+	// 	this.provider = provider;
+	// 	this.providerId = providerId;
+	// 	this.isCouple = isCouple;
+	// 	this.role = role;
+	// }
 
 
 }

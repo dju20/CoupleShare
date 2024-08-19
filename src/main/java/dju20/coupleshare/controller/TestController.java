@@ -1,11 +1,12 @@
 package dju20.coupleshare.controller;
 
+import java.util.Optional;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dju20.coupleshare.dto.users.CustomUserDetails;
+import dju20.coupleshare.dto.users.login.CustomUserDetails;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,8 @@ public class TestController {
 	@GetMapping("/user")
 	public User getUserData(@AuthenticationPrincipal CustomUserDetails userDetails) {
 		String username = userDetails.getUsername();
-		User user = usersRepository.findByUsername(username);
-		return user;
+		Optional<User> user = usersRepository.findByUsername(username);
+		return user.orElse(null);
 	}
 
 

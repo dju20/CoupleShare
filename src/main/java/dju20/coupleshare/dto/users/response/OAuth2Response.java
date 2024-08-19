@@ -1,4 +1,4 @@
-package dju20.coupleshare.dto.users;
+package dju20.coupleshare.dto.users.response;
 
 import dju20.coupleshare.enums.users.Sex;
 
