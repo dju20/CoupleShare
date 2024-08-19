@@ -54,6 +54,14 @@ const Login = () => {
     const handleSocialLogin = (provider) => {
         console.log(`${provider} login clicked`);
         // +소셜 로그인 API 호출 처리 로직 추가
+        const urls = {
+            google: 'http://localhost:8080/oauth2/authorization/google',
+            kakao: 'http://localhost:8080/oauth2/authorization/kakao',
+            naver: 'http://localhost:8080/oauth2/authorization/naver'
+        };
+
+        window.location.href = urls[provider];
+
     };
 
     return (
@@ -88,15 +96,15 @@ const Login = () => {
 
                     <div className="social-logos"> {/* 소셜 로고 */}
 
-                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Google')}>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('google')}>
                             <img src={GoogleLogo} alt="Google 로그인" className="social-logo-img"/>
                         </button>
 
-                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Kakao')}>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('kakao')}>
                             <img src={KakaoLogo} alt="Kakao 로그인" className="social-logo-img"/>
                         </button>
 
-                        <button type="button" className="social-login" onClick={() => handleSocialLogin('Naver')}>
+                        <button type="button" className="social-login" onClick={() => handleSocialLogin('naver')}>
                             <img src={NaverLogo} alt="Naver 로그인" className="social-logo-img"/>
                         </button>
                         {/*type="button" 추가로 소셜 로그인 폼 제출을 트리거 하지 않아도 됨*/}
