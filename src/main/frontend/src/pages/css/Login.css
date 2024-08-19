@@ -1,0 +1,144 @@
+body
+{
+    margin: 0;
+    font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.container
+{
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.left-panel /*레이아웃*/
+{
+    display: flex;
+    width: 25%;
+    padding: 35px;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+
+    /*스타일*/
+    background-color: #E9ECEF;
+}
+
+.logo-placeholder
+{
+    width: 160px;
+    height: 160px;
+    background-color: #E9ECEF;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo-img
+{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.right-panel
+{
+    /*레이아웃*/
+    display: flex;
+    width: 65%;
+    padding: 50px;
+
+    /*스타일*/
+    background-color: #E9ECEF;
+}
+
+.login-form
+{
+    display: flex;
+    flex-direction: column; /* 수직 방향 정렬 */
+    align-items: flex-start; /* 아이템 시작점 정렬 */
+    margin-top: 10%;
+}
+
+.input-field
+{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    font-size: 18px;
+}
+
+.social-logos
+{
+    display: flex;
+    justify-content: flex-start; /*버튼을 왼쪽으로 정렬*/
+    margin-bottom: 15px;
+}
+
+.social-login
+{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.social-logo-img
+{
+    width: 22px;
+    height: auto;
+}
+
+.find
+{
+    margin-bottom: 20px;
+}
+
+.find-link
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 15px
+}
+
+.login-button
+{
+    /*레이아웃*/
+    width: 80%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /*스타일*/
+    background-color: #868E96;
+    color: white;
+    font-size: 18px;
+}
+
+.login-button:hover
+{
+    background-color: #D1DFE8;
+    transition: background-color 0.5s ease; /*버튼 호버 애니메이션*/
+}
