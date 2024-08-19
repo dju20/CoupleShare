@@ -8,7 +8,7 @@ import dju20.coupleshare.entity.User;
 
 public interface UsersRepository extends JpaRepository<User, Long> {
 	boolean existsByUsername(String username);
-	User findByUsername(String username);
+	Optional<User> findByUsername(String username);
 
 	Optional<User> findByProviderAndProviderId(String provider, String providerId);
 

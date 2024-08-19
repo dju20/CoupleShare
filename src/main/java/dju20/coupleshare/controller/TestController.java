@@ -1,5 +1,6 @@
 package dju20.coupleshare.controller;
 
+import java.util.Optional;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +21,8 @@ public class TestController {
 	@GetMapping("/user")
 	public User getUserData(@AuthenticationPrincipal CustomUserDetails userDetails) {
 		String username = userDetails.getUsername();
-		User user = usersRepository.findByUsername(username);
-		return user;
+		Optional<User> user = usersRepository.findByUsername(username);
+		return user.orElse(null);
 	}
 
 
