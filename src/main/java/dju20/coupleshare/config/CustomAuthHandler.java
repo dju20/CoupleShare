@@ -1,4 +1,4 @@
-package dju20.coupleshare;
+package dju20.coupleshare.config;
 
 import java.io.IOException;
 import java.util.Collection;
