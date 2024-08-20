@@ -16,21 +16,21 @@ function CoupleMatching() {
         setCoupleCode(event.target.value);
     };
 
-    // 커플코드 발급 핸들러
+    // 커플코드 발급 핸들러 (GET 요청)
     const handleGenerateCode = async () => {
         try {
             setError('');
             setIsMatched(false);
 
-            // API 호출을 통해 커플코드 발급
-            const response = await apiClient.post('/couple/code/generate');
+            // API 호출을 통해 커플코드 발급 (GET 방식)
+            const response = await apiClient.get('/couple/code');
             setGeneratedCode(response.data.coupleCode); // 발급된 커플코드를 상태에 저장
         } catch (error) {
             setError('커플 코드를 발급하지 못했습니다.');
         }
     };
 
-    // 커플코드로 매칭 핸들러
+    // 커플코드로 매칭 핸들러 (POST 요청)
     const handleMatchCouple = async () => {
         try {
             if (!coupleCode) {
@@ -38,7 +38,7 @@ function CoupleMatching() {
                 return;
             }
 
-            // API 호출을 통해 커플 매칭
+            // API 호출을 통해 커플 매칭 (POST 방식)
             await apiClient.post('/couple/code/match', { coupleCode });
             setIsMatched(true);
         } catch (error) {
