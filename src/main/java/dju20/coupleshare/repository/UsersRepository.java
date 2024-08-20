@@ -14,7 +14,7 @@ public interface UsersRepository extends JpaRepository<User, Long> {
 
 	Optional<User> findByEmail(String email);
 
-    boolean existsByFriendCode(String friendCode);
+//    boolean existsByFriendCode(String friendCode);
 
-	Optional<User> findByFriendCode(String friendCode);
+//	Optional<User> findByFriendCode(String friendCode);
 }

@@ -1,12 +1,10 @@
-package dju20.coupleshare.service.users;
+package dju20.coupleshare.service.user;
 
 import dju20.coupleshare.dto.users.register.RegisterDto;
-import dju20.coupleshare.dto.users.response.UserResponseDto;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.enums.users.UserRole;
 import dju20.coupleshare.repository.UsersRepository;
 import dju20.coupleshare.service.util.CommonUtilService;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,7 +29,6 @@ public class UsersServiceImpl implements UsersService {
                 .sex(registerDto.getSex())
                 .role(UserRole.ROLE_USER)
                 .isCouple(false)
-                .friendCode(commonUtilService.generateUniqueFriendCode())
                 .provider("local")
                 .build();
 
@@ -44,13 +41,4 @@ public class UsersServiceImpl implements UsersService {
         }
     }
 
-    @Override
-    public Optional<UserResponseDto> findUserByFriendCode(String friendCode) {
-        return usersRepository.findByFriendCode(friendCode)
-                .map(user -> UserResponseDto.builder()
-                        .realName(user.getRealName())
-                        .sex(user.getSex().toString())
-                        .isCouple(user.getIsCouple())
-                        .build());
-    }
 }

@@ -1,4 +1,4 @@
-package dju20.coupleshare.service.users;
+package dju20.coupleshare.service.user;
 
 import dju20.coupleshare.dto.users.login.CustomOAuth2User;
 import dju20.coupleshare.dto.users.login.SocialLoginDto;
@@ -9,10 +9,7 @@ import dju20.coupleshare.entity.User;
 import dju20.coupleshare.enums.users.UserRole;
 import dju20.coupleshare.repository.UsersRepository;
 import dju20.coupleshare.service.util.CommonUtilService;
-import dju20.coupleshare.util.FriendCodeGenerator;
-
 import java.util.Map;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -68,7 +65,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             .providerId(oAuth2Response.getProviderId())
             .isCouple(false)
             .sex(oAuth2Response.getGender())
-            .friendCode(commonUtilService.generateUniqueFriendCode())
             .role(UserRole.ROLE_USER)
             .build();
 

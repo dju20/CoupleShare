@@ -18,7 +18,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import dju20.coupleshare.jwt.JwtFilter;
 import dju20.coupleshare.jwt.JwtUtil;
 import dju20.coupleshare.jwt.LoginFilter;
-import dju20.coupleshare.service.users.CustomOAuth2UserService;
+import dju20.coupleshare.service.user.CustomOAuth2UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
@@ -79,7 +79,7 @@ public class SecurityConfig {
 				.successHandler(customSuccessHandler));
 		http
 			.authorizeHttpRequests((auth) -> auth
-				.requestMatchers("/api/users/**").permitAll()
+				.requestMatchers("/api/user/**").permitAll()
 				.requestMatchers("/api/app/**").hasRole("USER")
 				.anyRequest().authenticated());
 
@@ -89,7 +89,7 @@ public class SecurityConfig {
 
 
 		LoginFilter loginFilter = new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil);
-		loginFilter.setFilterProcessesUrl("/api/users/login");
+		loginFilter.setFilterProcessesUrl("/api/user/login");
 
 		http
 			.addFilterAt(loginFilter, UsernamePasswordAuthenticationFilter.class);

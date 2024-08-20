@@ -2,7 +2,7 @@ package dju20.coupleshare.util;
 
 import java.security.SecureRandom;
 
-public class FriendCodeGenerator {
+public class CoupleCodeGenerator {
     private static final String BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final SecureRandom random = new SecureRandom();
 

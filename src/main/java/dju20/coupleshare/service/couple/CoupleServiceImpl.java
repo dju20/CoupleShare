@@ -17,9 +17,9 @@ public class CoupleServiceImpl implements CoupleService {
     public void sendRequest(String username, String friendCode) {
         User sendUser = usersRepository.findByUsername(username).orElseThrow(()->
                 new LoginUserException());
-
-        User requestUser = usersRepository.findByFriendCode(friendCode).orElseThrow(()->
-                new IllegalFriendCodeException());
+//
+//        User requestUser = usersRepository.findByFriendCode(friendCode).orElseThrow(()->
+//                new IllegalFriendCodeException());
 //
 //        if (requestUser.isPresent()) {
 //
