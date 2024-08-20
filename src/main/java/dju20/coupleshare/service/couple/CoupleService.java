@@ -1,6 +1,10 @@
 package dju20.coupleshare.service.couple;
 
-public interface CoupleService {
-    void sendRequest(String username, String friendCode);
+import dju20.coupleshare.dto.couple.CoupleCodeRequestDto;
 
+public interface CoupleService {
+
+    String generateCoupleCode(String username);
+
+    void matchCouple(String username, CoupleCodeRequestDto coupleCodeRequestDto);
 }
