@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import dju20.coupleshare.CustomAuthHandler;
 import dju20.coupleshare.jwt.JwtFilter;
 import dju20.coupleshare.jwt.JwtUtil;
 import dju20.coupleshare.jwt.LoginFilter;
