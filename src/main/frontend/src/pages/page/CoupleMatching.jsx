@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import apiClient from '../../utils/apiClient'; // apiClient를 임포트합니다
+import '../css/CoupleMatching.css';
 
 function CoupleMatching() {
     // 커플코드 입력 상태 관리
@@ -58,6 +59,8 @@ function CoupleMatching() {
                 {generatedCode && <p>발급된 커플 코드: {generatedCode}</p>}
             </div>
 
+            <div className="test-box"></div> {/* 테스트 박스 */}
+
             {/* 커플코드 입력 문구와 필드 */}
             <div className="match-code-section">
                 <p>이미 커플코드를 발급하셨나요?</p>
@@ -76,6 +79,7 @@ function CoupleMatching() {
             {/* 에러 메시지 표시 */}
             {error && <p className="error">{error}</p>}
         </div>
+
     );
 }
 
