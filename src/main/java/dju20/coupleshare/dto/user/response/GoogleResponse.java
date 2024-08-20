@@ -1,8 +1,8 @@
-package dju20.coupleshare.dto.users.response;
+package dju20.coupleshare.dto.user.response;
 
 import java.util.Map;
 
-import dju20.coupleshare.enums.users.Sex;
+import dju20.coupleshare.enums.user.Sex;
 
 public class GoogleResponse implements OAuth2Response {
 	private final Map<String,Object> attribute;

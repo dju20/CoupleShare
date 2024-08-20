@@ -1,6 +1,6 @@
 package dju20.coupleshare.controller;
 
-import dju20.coupleshare.dto.users.login.CustomUserDetails;
+import dju20.coupleshare.dto.user.login.CustomUserDetails;
 import dju20.coupleshare.service.couple.CoupleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

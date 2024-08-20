@@ -1,7 +1,7 @@
 package dju20.coupleshare.entity;
 
-import dju20.coupleshare.enums.users.Sex;
-import dju20.coupleshare.enums.users.UserRole;
+import dju20.coupleshare.enums.user.Sex;
+import dju20.coupleshare.enums.user.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

@@ -1,13 +1,13 @@
 package dju20.coupleshare.service.user;
 
-import dju20.coupleshare.dto.users.login.CustomOAuth2User;
-import dju20.coupleshare.dto.users.login.SocialLoginDto;
-import dju20.coupleshare.dto.users.response.GoogleResponse;
-import dju20.coupleshare.dto.users.response.NaverResponse;
-import dju20.coupleshare.dto.users.response.OAuth2Response;
+import dju20.coupleshare.dto.user.login.CustomOAuth2User;
+import dju20.coupleshare.dto.user.login.SocialLoginDto;
+import dju20.coupleshare.dto.user.response.GoogleResponse;
+import dju20.coupleshare.dto.user.response.NaverResponse;
+import dju20.coupleshare.dto.user.response.OAuth2Response;
 import dju20.coupleshare.entity.User;
-import dju20.coupleshare.enums.users.UserRole;
-import dju20.coupleshare.repository.UsersRepository;
+import dju20.coupleshare.enums.user.UserRole;
+import dju20.coupleshare.repository.UserRepository;
 import dju20.coupleshare.service.util.CommonUtilService;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
-    private final UsersRepository usersRepository;
+    private final UserRepository userRepository;
     private final CommonUtilService commonUtilService;
 
     @Override
@@ -51,7 +51,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     }
 
     private SocialLoginDto findOrRegisterUser(OAuth2Response oAuth2Response) {
-        return usersRepository.findByProviderAndProviderId(oAuth2Response.getProvider(), oAuth2Response.getProviderId())
+        return userRepository.findByProviderAndProviderId(oAuth2Response.getProvider(), oAuth2Response.getProviderId())
             .map(this::mapToSocialLoginDto)
             .orElseGet(() -> registerNewUser(oAuth2Response));
     }
@@ -68,7 +68,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             .role(UserRole.ROLE_USER)
             .build();
 
-        User savedUser = usersRepository.save(newUser);
+        User savedUser = userRepository.save(newUser);
         return mapToSocialLoginDto(savedUser);
     }
 

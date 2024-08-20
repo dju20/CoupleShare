@@ -1,4 +1,4 @@
-package dju20.coupleshare.dto.users.login;
+package dju20.coupleshare.dto.user.login;
 
 import lombok.Getter;
 

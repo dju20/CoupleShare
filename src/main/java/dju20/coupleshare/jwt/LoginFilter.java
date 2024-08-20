@@ -13,8 +13,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dju20.coupleshare.dto.users.login.CustomUserDetails;
-import dju20.coupleshare.dto.users.login.LoginDto;
+import dju20.coupleshare.dto.user.login.CustomUserDetails;
+import dju20.coupleshare.dto.user.login.LoginDto;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

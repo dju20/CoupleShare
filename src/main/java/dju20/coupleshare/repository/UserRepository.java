@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import dju20.coupleshare.entity.User;
 
-public interface UsersRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 	boolean existsByUsername(String username);
 	Optional<User> findByUsername(String username);
 

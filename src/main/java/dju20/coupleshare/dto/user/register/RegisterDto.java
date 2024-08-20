@@ -1,6 +1,6 @@
-package dju20.coupleshare.dto.users.register;
+package dju20.coupleshare.dto.user.register;
 
-import dju20.coupleshare.enums.users.Sex;
+import dju20.coupleshare.enums.user.Sex;
 import lombok.Getter;
 
 @Getter

@@ -1,4 +1,4 @@
-package dju20.coupleshare.enums.users;
+package dju20.coupleshare.enums.user;
 
 public enum Sex {
 	MALE,

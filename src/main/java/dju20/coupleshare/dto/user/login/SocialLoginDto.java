@@ -1,8 +1,6 @@
-package dju20.coupleshare.dto.users.login;
+package dju20.coupleshare.dto.user.login;
 
-import java.util.Map;
-
-import dju20.coupleshare.enums.users.UserRole;
+import dju20.coupleshare.enums.user.UserRole;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package dju20.coupleshare.exception.users;
+package dju20.coupleshare.exception.user;
 
 public class IllegalFriendCodeException extends RuntimeException {
     public IllegalFriendCodeException() {
