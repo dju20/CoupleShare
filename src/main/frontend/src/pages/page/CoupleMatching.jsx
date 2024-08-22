@@ -39,7 +39,7 @@ function CoupleMatching() {
             }
 
             // API 호출을 통해 커플 매칭 (POST 방식)
-            await apiClient.post('/couple/code/match', { coupleCode });
+            await apiClient.post('/couple/code', { coupleCode });
             setIsMatched(true);
         } catch (error) {
             setIsMatched(false);
