@@ -21,11 +21,11 @@ public class CoupleController {
 
     @GetMapping("/code")
     public ResponseEntity<CoupleCodeResponseDto> generateCoupleCode(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+
         try {
             String coupleCode = coupleService.generateCoupleCode(customUserDetails.getUsername());
             CoupleCodeResponseDto coupleCodeResponseDto = CoupleCodeResponseDto.builder()
                     .coupleCode(coupleCode).build();
-
             return ResponseEntity.ok().body(coupleCodeResponseDto);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
