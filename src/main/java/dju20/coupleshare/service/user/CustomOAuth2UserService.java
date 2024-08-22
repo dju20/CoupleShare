@@ -6,6 +6,7 @@ import dju20.coupleshare.dto.user.response.GoogleResponse;
 import dju20.coupleshare.dto.user.response.NaverResponse;
 import dju20.coupleshare.dto.user.response.OAuth2Response;
 import dju20.coupleshare.entity.User;
+import dju20.coupleshare.enums.user.CoupleStatus;
 import dju20.coupleshare.enums.user.UserRole;
 import dju20.coupleshare.repository.UserRepository;
 import dju20.coupleshare.service.util.CommonUtilService;
@@ -63,7 +64,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             .realName(oAuth2Response.getName())
             .provider(oAuth2Response.getProvider())
             .providerId(oAuth2Response.getProviderId())
-            .isCouple(false)
+            .coupleStatus(CoupleStatus.SOLO)
             .sex(oAuth2Response.getGender())
             .role(UserRole.ROLE_USER)
             .build();

@@ -2,6 +2,7 @@ package dju20.coupleshare.service.user;
 
 import dju20.coupleshare.dto.user.register.RegisterDto;
 import dju20.coupleshare.entity.User;
+import dju20.coupleshare.enums.user.CoupleStatus;
 import dju20.coupleshare.enums.user.UserRole;
 import dju20.coupleshare.repository.UserRepository;
 import dju20.coupleshare.service.util.CommonUtilService;
@@ -28,7 +29,7 @@ public class UserServiceImpl implements UserService {
                 .realName(registerDto.getRealName())
                 .sex(registerDto.getSex())
                 .role(UserRole.ROLE_USER)
-                .isCouple(false)
+                .coupleStatus(CoupleStatus.SOLO)
                 .provider("local")
                 .build();
 
