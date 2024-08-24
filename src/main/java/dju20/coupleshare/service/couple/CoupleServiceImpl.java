@@ -1,6 +1,7 @@
 package dju20.coupleshare.service.couple;
 
 import dju20.coupleshare.dto.couple.CoupleCodeRequestDto;
+import dju20.coupleshare.dto.couple.CouplePageResponseDto;
 import dju20.coupleshare.entity.Couple;
 import dju20.coupleshare.entity.User;
 import dju20.coupleshare.enums.user.CoupleStatus;
@@ -21,13 +22,12 @@ public class CoupleServiceImpl implements CoupleService {
     private final UserRepository userRepository;
     private final StringRedisTemplate redisTemplate;
     private final CoupleRepository coupleRepository;
-    private final ValueOperations valueOperations = redisTemplate.opsForValue();
 
     @Override
     @Transactional
     public String generateCoupleCode(String username) {
         User user = getUserByUsername(username);
-
+        ValueOperations valueOperations = redisTemplate.opsForValue();
         validationIsCoupleUser(user);
 
         if (user.getCoupleStatus() == CoupleStatus.WAIT) {
@@ -72,6 +72,7 @@ public class CoupleServiceImpl implements CoupleService {
     @Override
     public void matchCouple(String username, CoupleCodeRequestDto coupleCodeRequestDto) {
         User user = getUserByUsername(username);
+        ValueOperations valueOperations = redisTemplate.opsForValue();
 
         String coupleCodeCreatorId = valueOperations.get(coupleCodeRequestDto.getCoupleCode()).toString();
         validateCoupleCodeCreatorId(coupleCodeCreatorId);
