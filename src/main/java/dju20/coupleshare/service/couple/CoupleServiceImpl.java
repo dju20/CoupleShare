@@ -82,6 +82,17 @@ public class CoupleServiceImpl implements CoupleService {
         removeCoupleCodeFromRedis(coupleCodeRequestDto, coupleCodeCreatorId);
     }
 
+    @Override
+    public CouplePageResponseDto getCouplePage(Long coupleId) {
+        Couple couple = coupleRepository.findById(coupleId).orElseThrow(() ->
+                new IllegalArgumentException());
+
+        return CouplePageResponseDto.builder()
+                .user1Username(couple.getUser1().getUsername())
+                .user2Username(couple.getUser2().getUsername())
+                .build();
+    }
+
     private static void validateCoupleCodeCreatorId(String coupleCodeCreatorId) {
         if (coupleCodeCreatorId == null) {
             throw new IllegalArgumentException();
