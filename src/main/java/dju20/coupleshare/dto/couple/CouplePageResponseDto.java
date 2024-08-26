@@ -9,5 +9,5 @@ public class CouplePageResponseDto {
     private Long coupleId;
     private String user1Username;
     private String user2Username;
-    private String coupleStatus; // 또는 다른 필요
+    private boolean canEdit;
 }

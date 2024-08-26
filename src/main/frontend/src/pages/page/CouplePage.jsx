@@ -30,7 +30,16 @@ const CouplePage = () => {
 
     return (
         <div>
-            {coupleData && <CoupleProfile coupleData={coupleData} />}
+            {coupleData && (
+                <div>
+                    <CoupleProfile coupleData={coupleData} />
+                    {coupleData.canEdit && (
+                        <button onClick={() => {/* 수정 로직 */}}>
+                            Edit Couple Page
+                        </button>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

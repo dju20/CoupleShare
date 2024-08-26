@@ -83,13 +83,18 @@ public class CoupleServiceImpl implements CoupleService {
     }
 
     @Override
-    public CouplePageResponseDto getCouplePage(Long coupleId) {
+    public CouplePageResponseDto getCouplePage(Long coupleId, String username) {
         Couple couple = coupleRepository.findById(coupleId).orElseThrow(() ->
                 new IllegalArgumentException());
+
+        boolean canEdit = false;
+        if(couple.getUser1().getUsername().equals(username)||couple.getUser2().getUsername().equals(username))
+            canEdit = true;
 
         return CouplePageResponseDto.builder()
                 .user1Username(couple.getUser1().getUsername())
                 .user2Username(couple.getUser2().getUsername())
+                .canEdit(canEdit)
                 .build();
     }
 

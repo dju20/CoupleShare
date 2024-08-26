@@ -9,5 +9,5 @@ public interface CoupleService {
 
     void matchCouple(String username, CoupleCodeRequestDto coupleCodeRequestDto);
 
-    CouplePageResponseDto getCouplePage(Long coupleId);
+    CouplePageResponseDto getCouplePage(Long coupleId, String username);
 }

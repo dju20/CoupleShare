@@ -47,11 +47,12 @@ public class CoupleController {
     }
 
     @GetMapping("/page/{coupleId}")
-    public ResponseEntity<CouplePageResponseDto> getCouplePage(@PathVariable("coupleId") Long coupleId) {
+    public ResponseEntity<CouplePageResponseDto> getCouplePage(
+            @AuthenticationPrincipal CustomUserDetails customUserDetails, @PathVariable("coupleId") Long coupleId) {
         try {
-            CouplePageResponseDto couplePageResponseDto = coupleService.getCouplePage(coupleId);
+            CouplePageResponseDto couplePageResponseDto = coupleService.getCouplePage(coupleId,customUserDetails.getUsername());
             return ResponseEntity.ok().body(couplePageResponseDto);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
