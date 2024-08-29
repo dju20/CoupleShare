@@ -1,0 +1,72 @@
+.body{
+
+}
+
+.Homepage {
+    padding-top: 200px;
+    width: 1920px;
+    height: 1080px;
+
+}
+
+.Homepage_Mainimage{
+
+    background-image: url("../../img/coupleshare_mainimg.jpg");
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    text-align: center;
+    align-content: center;
+    font-size: 7.2rem;
+    height: 70rem;
+    color: white;
+
+
+}
+
+
+
+.Homepage_introduce{
+    text-align: center;
+    align-content: center;
+    font-size: 4rem;
+    background-color: #7469b6;
+    height: 30rem;
+    width:1920px;
+}
+
+.Couplepage_createbutton{
+    border:white solid 2px;
+    background-color:rgba(0,0,0,0.1);
+    width:20rem;
+    height:5rem;
+    cursor: pointer;
+}
+.Couplepage_createbutton:hover{
+    background-color:rgba(0,0,0,0.3);
+}
+.Couplepage_createbutton a{
+    text-decoration-line: none;
+    color:white;
+    font-size: 1.3rem;
+}
+.Homepage_flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    padding-top: 20px;
+}
+
+
+.Homepage_flex1, .Homepage_flex2 {
+    position: relative; /* 기본 위치 설정 */
+    z-index: 1; /* 사이드바보다 낮게 설정 */
+}
+
+.Homepage_mainbox{
+    display: flex;
+    justify-content: center;
+}
+

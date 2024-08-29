@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import apiClient from '../../utils/apiClient'; // apiClient를 임포트합니다
+import Header from './header';
 
 function CoupleMatching() {
     // 커플코드 입력 상태 관리
@@ -49,6 +50,7 @@ function CoupleMatching() {
 
     return (
         <div className="couple-app">
+            <Header/>
             <h1>커플 매칭</h1>
 
             {/* 커플코드 발급 문구와 버튼 */}
