@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import Sidebar from "../component/sidebar";
 import React, {useState} from "react";
+import "../css/header.css"
+import logoimage from '../../img/Test-logo.png'
 
 
 const Header = () => {
@@ -19,7 +21,7 @@ return (
     <div>
         <nav className="header">
             <Link to="/" style={{textDecoration: "none", color: "black", textAlign: "center"}}
-                  className="header-home">Couple Share</Link>
+                  className="header-home"><img src={logoimage} alt="Logo" className="Logoimg"></img></Link>
             {LoggedIn ? (
                 <button onClick={handleLogout} className="header-logout">Logout</button>
             ) : (
