@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import apiClient from '../../utils/apiClient'; // apiClient를 임포트합니다
 import '../css/CoupleMatching.css';
 import Header from "./header";
-import TestLogo from "../../img/Test-logo.png";
-import BackB from "../../img/Back-B.jpg";
+// import TestLogo from "../../img/Test-logo.png";
 
 function CoupleMatching() {
     // 커플코드 입력 상태 관리
@@ -12,20 +11,22 @@ function CoupleMatching() {
     const [IssuedCode, setIssuedCode] = useState('');
     // 연결된 커플 상태 관리
     const [isMatched, setIsMatched] = useState(false);
-    // 에러 메시지 상태 관리
-    const [error, setError] = useState('');
+    // 에러 메시지 상태 관리 -IssueCode
+    const [IssueError, setIssueError] = useState('');
+    // 에러 메시지 상태 관리 -EnterCode
+    const [EnterError, setEnterError] = useState('')
 
     // 커플코드 발급 핸들러 (GET 요청)
     const handleIssueCoupleCode = async () => {
         try {
-            setError('');
+            setIssueError('');
             setIsMatched(false);
 
             // API 호출을 통해 커플코드 발급 (GET 방식)
             const response = await apiClient.get('/couple/code');
             setIssuedCode(response.data.coupleCode); // 발급된 커플코드를 상태에 저장
         } catch (error) {
-            setError('커플 코드를 발급하지 못했습니다.');
+            setIssueError('커플 코드를 발급하지 못했습니다.');
         }
     };
 
@@ -38,7 +39,7 @@ function CoupleMatching() {
     const handleMatchCouple = async () => {
         try {
             if (!EnterCode) {
-                setError('커플 코드를 입력해주세요.');
+                setEnterError('커플 코드를 입력해주세요.');
                 return;
             }
 
@@ -47,7 +48,7 @@ function CoupleMatching() {
             setIsMatched(true);
         } catch (error) {
             setIsMatched(false);
-            setError('커플 매칭에 실패했습니다.');
+            setEnterError('커플 매칭에 실패했습니다.');
         }
     };
 
@@ -58,35 +59,38 @@ function CoupleMatching() {
 
             <div className="CM-MainPanel">
 
-                <div className="CM-LogoPlacehorder"> {/*로고 이미지 페널*/}
-                    <img src={TestLogo} alt="Logo" className="CM-logo-img"/>
-                </div>
+                {/*<div className="CM-LogoPlacehorder"> /!*로고 이미지 페널*!/*/}
+                {/*    <img src={TestLogo} alt="Logo" className="CM-logo-img"/>*/}
+                {/*</div>*/}
 
                 <div className="CM-up-panel"> {/*커플 코드 발급 페널*/}
                     <div className="CM-IssueCode">
-                        <button onClick={handleIssueCoupleCode}>CoupleCode</button>
+                        <button onClick={handleIssueCoupleCode}>Couple<br/>Code</button>
+                        <div className="CM-IssueCodeMessage">
                         {IssuedCode && <p>발급된 커플 코드: {IssuedCode}</p>}
-                        {error && <p className="error">{error}</p>}
+                            {IssueError && <p className="CM-IssueError">{IssueError}</p>}
                     </div>
                 </div>
+                    </div>
 
                 <div className="CM-down-panel"> {/*커플 코드 입력 페널*/}
                     <div className="CM-EnterCode">
-                        <button onClick={handleMatchCouple}>CoupleMatch</button>
+                        <button onClick={handleMatchCouple}>Couple<br/>Match</button>
+                        <div className="CM-EnterCodeInput">
                         <input
                             type="text"
                             value={EnterCode}
-                            onChange={handleEnterCoupleCode}
-                        />
+                            onChange={handleEnterCoupleCode}/>
+                            {EnterError && <p className="CM-EnterError">{EnterError}</p>}
+                        </div>
                     </div>
                 </div>
 
                 {/* 매칭 결과 표시 -> 페이지 이동으로 변경 예정 */}
                 {isMatched && <p>커플이 성공적으로 연결되었습니다!</p>}
             </div>
-        </div>
-    )
-        ;
+            </div>
+    );
 }
 
 export default CoupleMatching;
