@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import '../css/sidebar.css'
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -20,7 +20,7 @@ const Sidebar = () => {
                 <ul>
                     <li><Link to="/" className="sidebar-list">Home</Link></li>
                     <li><Link to="/mypage" className="sidebar-list">My page</Link></li>
-                    <li><Link to="/login" className="sidebar-list">Login</Link></li>
+                    <li><Link to="/CoupleMatching" className="sidebar-list">Couple Matching</Link></li>
                     <li><Link to="/" className="sidebar-list">Home</Link></li>
                 </ul>
             </div>
