@@ -6,20 +6,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import dju20.coupleshare.dto.users.login.CustomUserDetails;
+import dju20.coupleshare.dto.user.login.CustomUserDetails;
 import dju20.coupleshare.entity.User;
-import dju20.coupleshare.repository.UsersRepository;
+import dju20.coupleshare.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-	private final UsersRepository usersRepository;
+	private final UserRepository userRepository;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Optional<User> userData = usersRepository.findByUsername(username);
+		Optional<User> userData = userRepository.findByUsername(username);
 
 		if(userData.isPresent()){
 			return new CustomUserDetails(userData.get());

@@ -80,7 +80,7 @@ public class SecurityConfig {
 		http
 			.authorizeHttpRequests((auth) -> auth
 				.requestMatchers("/api/user/**").permitAll()
-				.requestMatchers("/api/app/**").hasRole("USER")
+				.requestMatchers("/api/couple/**").hasRole("USER")
 				.anyRequest().authenticated());
 
 		http

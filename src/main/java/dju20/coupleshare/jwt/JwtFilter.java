@@ -8,9 +8,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import dju20.coupleshare.dto.users.login.CustomUserDetails;
+import dju20.coupleshare.dto.user.login.CustomUserDetails;
 import dju20.coupleshare.entity.User;
-import dju20.coupleshare.enums.users.UserRole;
+import dju20.coupleshare.enums.user.UserRole;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

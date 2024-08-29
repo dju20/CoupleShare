@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import dju20.coupleshare.dto.users.login.CustomOAuth2User;
+import dju20.coupleshare.dto.user.login.CustomOAuth2User;
 import dju20.coupleshare.jwt.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;

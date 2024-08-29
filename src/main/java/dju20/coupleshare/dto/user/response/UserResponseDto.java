@@ -1,4 +1,4 @@
-package dju20.coupleshare.dto.users.response;
+package dju20.coupleshare.dto.user.response;
 
 import lombok.Builder;
 import lombok.Getter;
