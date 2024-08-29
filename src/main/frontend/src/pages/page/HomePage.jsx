@@ -11,7 +11,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const observerOptions = {
-            threshold: 1.0 // 10% 이상 보이면 트리거
+            threshold: 0.9 // 10% 이상 보이면 트리거
         };
 
         const observer = new IntersectionObserver((entries) => {
