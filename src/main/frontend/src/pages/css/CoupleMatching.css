@@ -1,10 +1,134 @@
-.test-box
+
+.CM-container
 {
-    width: 100px; /* 박스 너비 */
-    height: 100px; /* 박스 높이 */
-    background-color: #D3B42D; /* 배경색 */
-    position: fixed; /* 화면 하단에 고정 */
-    bottom: 0; /* 하단에서 0px 위치 */
-    justify-content: center; /*수평 중앙 정렬*/
-    margin: 20px; /* 하단 및 오른쪽으로 20px 여백 */
+    background-image: url("../../img/Back-B.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.CM-MainPanel
+{
+    display: flex;
+    flex-direction: column; /*flexbox 수직 정렬*/
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+
+.CM-LogoPlacehorder
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.CM-logo-img
+{
+    width: 100%;
+    height: auto;
+}
+
+
+.CM-up-panel
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.CM-IssueCode
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CM-IssueCode button
+{
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.CM-IssueCode button:hover
+{
+    background-color: #5a6268;
+}
+
+.CM-IssueCode p
+{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+.CM-down-panel
+{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.CM-EnterCode
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CM-EnterCode button
+{
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.CM-EnterCode button:hover
+{
+    background-color: #5a6268;
+}
+
+.CM-EnterCode input
+{
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.error
+{
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.CM-container p
+{
+    color: #28a745;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
 }
