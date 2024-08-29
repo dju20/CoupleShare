@@ -1,0 +1,36 @@
+.mainbox {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    border: 2px solid black;
+
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 2rem;
+}
+
+/* 원이 화면에 나타날 때의 스타일 */
+.mainbox.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mainboxbutton{
+    border:white solid 2px;
+    background-color:rgba(0,0,0,0.1);
+    width:10rem;
+    height:3rem;
+
+
+}
+.mainboxbutton:hover{
+    cursor:pointer;
+    background-color:rgba(0,0,0,0.3);
+ }
+.mainboxbutton a{
+    text-decoration-line: none;
+    color:white;
+    font-size: 1.3rem;
+}
+
