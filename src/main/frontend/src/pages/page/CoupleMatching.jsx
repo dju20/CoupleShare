@@ -4,7 +4,7 @@ import '../css/CoupleMatching.css';
 import Header from "./header";
 
 function CoupleMatching() {
-    const [coupleCode, setCoupleCode] = useState(''); // EnterCode를 coupleCode로 변경
+    const [coupleCode, setCoupleCode] = useState('');
     const [IssuedCode, setIssuedCode] = useState('');
     const [isMatched, setIsMatched] = useState(false);
     const [IssueError, setIssueError] = useState('');
@@ -28,19 +28,19 @@ function CoupleMatching() {
 
     // 커플코드 입력 핸들러
     const handleEnterCoupleCode = (event) => {
-        setCoupleCode(event.target.value); // EnterCode를 coupleCode로 변경
+        setCoupleCode(event.target.value);
     };
 
     // 커플코드로 매칭 핸들러 (POST 요청)
     const handleMatchCouple = async () => {
         try {
-            if (!coupleCode) { // EnterCode를 coupleCode로 변경
+            if (!coupleCode) {
                 setEnterError('커플 코드를 입력해주세요.');
                 return;
             }
 
             // API 호출을 통해 커플 매칭 (POST 방식)
-            await apiClient.post('/couple/code', { coupleCode }); // EnterCode를 coupleCode로 변경
+            await apiClient.post('/couple/code', { coupleCode });
             setIsMatched(true);
         } catch (error) {
             setIsMatched(false);
@@ -68,7 +68,7 @@ function CoupleMatching() {
                         <div className="CM-EnterCodeInput">
                             <input
                                 type="text"
-                                value={coupleCode} // EnterCode를 coupleCode로 변경
+                                value={coupleCode}
                                 onChange={handleEnterCoupleCode}
                             />
                             {EnterError && <p className="CM-EnterError">{EnterError}</p>}
