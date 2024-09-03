@@ -49,8 +49,10 @@ function CoupleMatching() {
     };
 
     return (
-        <div className="CM-container">
+        <div className="CM-Container">
             <Header/>
+            <div className="CM-SubContainer">
+
             <div className="CM-MainPanel">
                 <div className="CM-up-panel">
                     <div className="CM-IssueCode">
@@ -77,6 +79,7 @@ function CoupleMatching() {
                 </div>
 
                 {isMatched && <p>커플이 성공적으로 연결되었습니다!</p>}
+            </div>
             </div>
         </div>
     );

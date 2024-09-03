@@ -5,10 +5,10 @@
     left: 0;
     right: 0;
 
-    height: 80px;
+    height: 100px;
     padding: 1rem;
     color: white;
-    background: antiquewhite;
+    background: transparent;
     font-weight: bold;
     display: flex;
     align-content: center;
